@@ -1,3 +1,4 @@
+//Edit test #1
 var canvas = document.getElementById("myCanvas");
 var cont = canvas.getContext("2d"), idata = cont.getImageData(0, 0, canvas.width, canvas.height),
 pixels = idata.data;
