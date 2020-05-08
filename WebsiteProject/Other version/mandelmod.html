@@ -1,0 +1,33 @@
+<style>
+body {
+background-image: url(https://www.esa.int/extension/pillars/design/pillars/images/nebula.jpg);
+font-family : Verdana, Tahoma, sans-serif;
+text-align: center;
+}
+h1 {
+    color : white;
+}
+button {
+    border-radius : 30px;
+    border : none;
+    color : white;
+    background-color : rgb(10, 115, 175);
+}
+
+
+</style>
+<!DOCTYPE html>
+<html>
+    <head>
+        <h1><b>The Mandelbrot set</b></h1>
+        <canvas id="myCanvas" width="600" height="600" onclick="setOffset(event)" onmousewheel="setScale()"></canvas>
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <title>Fractals</title>
+        <button onclick="scale = 200; offset.x = offset.y = 0; factor = 15;"><b>Reset</b></button>
+        <style>
+            button {position: absolute;}
+        </style>
+    </body>
+</html>
