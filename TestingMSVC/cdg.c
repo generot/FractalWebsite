@@ -1,1 +1,0 @@
-main(n,o,i){i=o=0;scanf("%d",&n);int a[n];for(;i++<n;){scanf("%d",&a[i]);a[i]%2?o++:0;}printf("E-%f-%d,O-%f-%d",100-((float)o/n*100),n-o,(float)o/n*100,o);}

@@ -1,1 +1,0 @@
-main(n,i){scanf("%d",&n);for(i=32;i-->0;){n&(1<<i)?printf("1"):printf("0");}}

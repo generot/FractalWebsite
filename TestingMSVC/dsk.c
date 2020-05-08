@@ -1,1 +1,0 @@
-main(i,a,k){for(i=1;;i++){scanf("%d",&a);i%2?(k=a>0?1:0):(k=a<0?1:0);if(!k)break;}}
