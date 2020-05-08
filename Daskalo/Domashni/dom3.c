@@ -1,0 +1,1 @@
+int a;main(int k,char**argv){int c=atoi(argv[1]),l=k-1;!(c%l)?a++:0;(a==2&&l==c)?puts("Prime"):(l==c?puts("Composite"):0);k<=c?main(k+1,argv):0;}
