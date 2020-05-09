@@ -2,13 +2,14 @@
 body {
 background-image: url(https://www.esa.int/extension/pillars/design/pillars/images/nebula.jpg);
 font-family : Verdana, Tahoma, sans-serif;
+color: aliceblue;
 text-align: center;
 }
 h1 {
     color : white;
 }
 button {
-     padding: 5px 10px;
+  padding: 5px 10px;
   font-size: 17px;
   position:center;
   text-align: center;
@@ -41,6 +42,7 @@ button:active {
     <body>
         <title>Fractals</title>
         <button onclick="scale = 200; offset.x = offset.y = 0; factor = 1;"><b>Reset</b></button>
+        <p><b>Zoom in: Numpad '+'<br>Zoom out: Numpad '-'</b></p>
         <style>
             button {position: absolute;}
         </style>
