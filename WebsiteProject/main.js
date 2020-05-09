@@ -3,7 +3,7 @@ var canvas = document.getElementById("myCanvas");
 var cont = canvas.getContext("2d"), idata = cont.getImageData(0, 0, canvas.width, canvas.height),
 pixels = idata.data;
 
-var scale = 200, defScale = scale, factor = 15;
+let scale = 200, defScale = scale, factor = 15;
 
 var offset = {
     x: 0,
@@ -38,11 +38,11 @@ function setScale(){
 
 function draw(){
     clear();
-    let x = canvas.width/2, y = canvas.height/2, sc = parseInt(scale, 10);
+    let x = canvas.width/2, y = canvas.height/2;
 
     for(let i = -y; i < y; i++)
         for(let j = -x; j < x; j++){
-            let real = j/sc + offset.x, img = i/sc + offset.y;
+            let real = j/scale + offset.x, img = i/scale + offset.y;
             const constReal = real, constImg = img;
 
             let iterator, max = 100;
