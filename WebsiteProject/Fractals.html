@@ -34,13 +34,13 @@ button:active {
 <html>
     <head>
         <h1><b>The Mandelbrot set</b></h1>
-        <canvas id="myCanvas" width="600" height="600" onclick="setOffset(event)" onmousewheel="setScale()"></canvas>
+        <canvas id="myCanvas" width="601" height="601" onclick="setOffset(event)"></canvas>
         <script src="classes.js"></script>
         <script src="main.js"></script>
     </head>
     <body>
         <title>Fractals</title>
-        <button onclick="scale = 200; offset.x = offset.y = 0; factor = 15;"><b>Reset</b></button>
+        <button onclick="scale = 200; offset.x = offset.y = 0; factor = 1;"><b>Reset</b></button>
         <style>
             button {position: absolute;}
         </style>

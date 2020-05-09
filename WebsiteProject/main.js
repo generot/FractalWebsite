@@ -1,9 +1,8 @@
-//Testing commitment
 let canvas = document.getElementById("myCanvas");
 let cont = canvas.getContext("2d"), idata = cont.getImageData(0, 0, canvas.width, canvas.height),
 pixels = idata.data;
 
-let scale = 200, defScale = scale, factor = 15;
+let scale = 200, defScale = scale, factor = 1, speed = 0.018888;
 let manager = new CanvasManagement(canvas);
 
 var offset = {
@@ -13,18 +12,55 @@ var offset = {
 
 function setOffset(event){
     let halfX = canvas.width/2, halfY = canvas.height/2;
-    let normX = (event.clientX % canvas.width - halfX)/halfX, 
-    normY = (event.clientY % canvas.height - halfY)/halfY;
+    let normX = (event.clientX % (canvas.width+1) - halfX)/halfX, 
+    normY = (event.clientY % (canvas.height+1) - halfY)/halfY;
 
     offset.x += normX/scale * defScale;
     offset.y += normY/scale * defScale;
 }
 
-function setScale(){
-    let prevScale = scale;
-    scale += factor;
-    factor += scale - prevScale;
+function setScale(zoom){
+    //let prevScale = scale;
+    if(zoom) {
+        scale += factor;
+        factor = scale/defScale * 4;
+    }
+    else if(!zoom && scale+1 > defScale) {
+        scale -= factor
+        factor = scale/defScale * 4;
+    }
 }
+
+window.addEventListener("keydown", function(event){
+    switch(event.which){
+    case 107: {
+        setScale(true);
+        break;
+    }
+    case 109: {
+        setScale(false);
+        break;
+    }
+    //Експериментални движения
+    case 104: {
+        offset.y -= speed/scale * defScale;
+        break;
+    }
+    case 101: {
+        offset.y += speed/scale * defScale;
+        break;
+    }
+    case 100: {
+        offset.x -= speed/scale * defScale;
+        break;
+    }
+    case 102: {
+        offset.x += speed/scale * defScale;
+        break;
+    }
+    default: return;
+    }
+});
 
 function draw(){
     manager.clear();
