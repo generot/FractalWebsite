@@ -1,25 +1,15 @@
 //Testing commitment
-var canvas = document.getElementById("myCanvas");
-var cont = canvas.getContext("2d"), idata = cont.getImageData(0, 0, canvas.width, canvas.height),
+let canvas = document.getElementById("myCanvas");
+let cont = canvas.getContext("2d"), idata = cont.getImageData(0, 0, canvas.width, canvas.height),
 pixels = idata.data;
 
 let scale = 200, defScale = scale, factor = 15;
+let manager = new CanvasManagement(canvas);
 
 var offset = {
     x: 0,
     y: 0
 };
-
-function clear(){
-    for(let i = 0; i < canvas.height; i++)
-        for(let j = 0; j < canvas.width; j++){
-            let ind = (j + i * canvas.width) * 4;
-            pixels[ind] = pixels[ind+1] = pixels[ind+2] = pixels[ind+3] = 255;
-        }
-
-    idata.data = pixels;
-    cont.putImageData(idata, 0, 0);
-}
 
 function setOffset(event){
     let halfX = canvas.width/2, halfY = canvas.height/2;
@@ -37,7 +27,7 @@ function setScale(){
 }
 
 function draw(){
-    clear();
+    manager.clear();
     let x = canvas.width/2, y = canvas.height/2;
 
     for(let i = -y; i < y; i++)
