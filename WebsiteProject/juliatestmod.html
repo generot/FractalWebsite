@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<style>
+    button {
+        background-color : rgb(109, 4, 4);
+border-radius : 30px;
+color : white;
+text-align : center;
+position : center;
+box-shadow :0 5px red;
+border : rgb(168, 0, 0);
+    }
+button:hover {
+background-color : red;
+color : yellow;
+box-shadow :0 5px  rgb(168, 0, 0);
+border :rgb(255, 47, 47);
+}
+p{
+text-align : center;
+background-color : rgb(109, 4, 4);
+color : white;
+border-radius : 20px;
+font-family : Verdana;
+}
+head {
+text-align : center;
+}
+body {
+    background-color:rgb(24, 24, 24);
+    text-align : center;
+}
+label {
+    background-color:rgb(109, 4, 4);
+    font-family : Verdana;
+    border-radius : 20px;
+    border-bottom : red;
+    color : white;
+    font-size: medium;
+    padding : 10px;
+}
+
+
+</style>
+<!--В този файл тествам Джулия множеството-->
+<html>
+    <body>
+    <head>
+        <canvas id="Canvas" width="600" height="600"></canvas>
+        <form>
+            <br><label><b>Въведете реалния компонент</b></label><br>
+            <input id="input1" type="text" value="0"><br><br>
+            <label><b>Въведете имагинерния компонент</b></label><br>
+            <input id="input2" type="text" value="0"><br>
+        </form>
+
+        <script src="classes.js"></script>
+        <script src="julia.js"></script>
+        <br><button onclick="clearInterval(interval); draw(tpos); 
+            setTimeout(interv, 4000, draw, 1000/60, pos);">Submit</button>
+    </head>
+    <footer>
+        <p>Ако въведете координати, програмата застава на пауза за 4 секунди и след това продължава<br>
+        Така можете да видите резултата от координатите, които сте въвели</p>
+        </footer>
+    </body>
+</html>
