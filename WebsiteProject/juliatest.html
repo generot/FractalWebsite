@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--В този файл тествам функциите от classes.js-->
+<!--В този файл тествам Джулия множеството-->
 <html>
     <head>
         <canvas id="Canvas" width="600" height="600"></canvas>
@@ -12,9 +12,11 @@
 
         <script src="classes.js"></script>
         <script src="julia.js"></script>
-        <br><button onclick="clearInterval(interval); draw(tpos)">Submit</button>
+        <br><button onclick="clearInterval(interval); draw(tpos); 
+            setTimeout(interv, 4000, draw, 1000/60, pos);">Submit</button>
     </head>
     <body> 
-        
+        <p>Ако въведете координати, програмата застава на пауза за 4 секунди и след това продължава<br>
+        Така можете да видите резултата от координатите, които сте въвели</p>
     </body>
 </html>

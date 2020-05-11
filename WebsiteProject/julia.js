@@ -5,16 +5,14 @@ let width = canvas.width, height = canvas.height, manager = new CanvasManagement
 pixels = new Uint8ClampedArray(4*width*height);
 
 let m0 = document.getElementById("mode0"), m1 = document.getElementById("mode1");
-var input = parseFloat(document.getElementById("input1").value), 
-input2 = parseFloat(document.getElementById("input2").value);
 
 var pos = {
     x: 0,
     y: 0
 };
 var tpos = {
-    x: input,
-    y: input2
+    x: 0,
+    y: 0
 };
 
 window.addEventListener("mousemove", function(event){
@@ -24,6 +22,9 @@ window.addEventListener("mousemove", function(event){
 
 function draw(post){
     manager.clear();
+
+    tpos.x = parseFloat(document.getElementById("input1").value);
+    tpos.y = parseFloat(document.getElementById("input2").value);
 
     let halfw = width/2, halfh = height/2;
     for(let i = -halfh; i < halfh; i++)
@@ -65,6 +66,11 @@ function draw(post){
         ctx.putImageData(imageData, 0, 0);
 }
 
-var interval = setInterval(draw, 1000/60, pos);
+var interval;
+interv(draw, 1000/60, pos);
+
+function interv(func, time, arg){
+    interval = setInterval(func, time, arg);
+}
 
 
