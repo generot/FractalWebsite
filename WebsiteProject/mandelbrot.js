@@ -12,8 +12,8 @@ var offset = {
 
 function setOffset(event){
     let halfX = canvas.width/2, halfY = canvas.height/2;
-    let normX = (event.clientX % (canvas.width+1) - halfX)/halfX, 
-    normY = (event.clientY % (canvas.height+1) - halfY)/halfY;
+    let normX = (event.clientX % canvas.width - halfX)/halfX, 
+    normY = (event.clientY % canvas.height - halfY)/halfY;
 
     offset.x += normX/scale * defScale;
     offset.y += normY/scale * defScale;
