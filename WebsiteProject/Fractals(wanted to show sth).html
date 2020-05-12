@@ -1,0 +1,51 @@
+<style>
+body {
+    background: rgb(145,0,0);
+background: linear-gradient(0deg, rgba(145,0,0,1) 0%, rgba(34,0,0,1) 100%);
+font-family : Verdana, Tahoma, sans-serif;
+text-align: center;
+}
+canvas {
+    border-radius : 30px;
+}
+h1 {
+    color : white;
+}
+button {
+        background-color : rgb(182, 0, 0);
+border-radius : 30px;
+color : white;
+text-align : center;
+position : center;
+box-shadow :0 5px grey;
+border : rgb(168, 0, 0);
+    }
+button:hover {
+background-color : grey;
+box-shadow :0 5px  rgb(182, 0, 0);
+border :rgb(255, 47, 47);
+}
+
+
+p{
+    color : white;
+}
+
+</style>
+<!DOCTYPE html>
+<html>
+    <head>
+        <h1><b>The Mandelbrot set</b></h1>
+        <canvas id="myCanvas" width="1000" height="500" onclick="setOffset(event)"></canvas>
+        <script src="classes.js"></script>
+        <script src="mandelbrot.js"></script>
+    </head>
+    <body>
+        <title>Fractals</title>
+        <button onclick="scale = 200; offset.x = offset.y = 0; factor = 1;"><b>Reset</b></button>
+        <p><b>Zoom in: Numpad '+'<br>Zoom out: Numpad '-'</b></p>
+        <style>
+            button {position: absolute;}
+        </style>
+    </body>
+</html>
