@@ -29,6 +29,7 @@ class CanvasManagement{
         let newData = new ImageData(texture, this.canvas.width, this.canvas.height);
         this.ctx.putImageData(newData, 0, 0);
     }
+    static ToRadians(deg){return deg * Math.PI/180;}
 }
 
 class Rectangle {
@@ -77,5 +78,17 @@ class Square extends Rectangle {
                 this.posY + 3*this.length/4, this.length/2)
         };
         return i;
+    }
+}
+
+class Graphics {
+    static DrawLine(x1, y1){
+        ctx.beginPath();
+
+        ctx.moveTo(0,0);
+        ctx.lineTo(x1, y1);
+
+        ctx.closePath();
+        ctx.stroke();
     }
 }
