@@ -29,6 +29,7 @@ class CanvasManagement{
         let newData = new ImageData(texture, this.canvas.width, this.canvas.height);
         this.ctx.putImageData(newData, 0, 0);
     }
+
     static ToRadians(deg){return deg * Math.PI/180;}
 }
 
@@ -82,13 +83,49 @@ class Square extends Rectangle {
 }
 
 class Graphics {
-    static DrawLine(x1, y1){
+    static DrawLine(ctx, x1, y1, x = 0, y = 0){
         ctx.beginPath();
 
-        ctx.moveTo(0,0);
+        ctx.moveTo(x,y);
         ctx.lineTo(x1, y1);
 
         ctx.closePath();
         ctx.stroke();
+    }
+}
+
+class Triangle {
+    constructor(ctx, vrt1, len){
+        this.ctx = ctx;
+        this.vrt = vrt1;
+        this.len = len;
+        let height = Math.floor(Math.sqrt(len*len - len*len/4));
+
+        ctx.save();
+        ctx.translate(vrt1.x, vrt1.y);
+        Graphics.DrawLine(ctx, -len/2, height);
+
+        ctx.translate(-len/2, height);
+        Graphics.DrawLine(ctx, len, 0);
+
+        ctx.translate(len, 0);
+        Graphics.DrawLine(ctx, -len/2, -height);
+        ctx.restore();
+    }
+
+    triple(){
+        let newVert = {
+            x: this.vrt.x + this.len/4,
+            y: this.vrt.y + Math.floor(Math.sqrt(this.len*this.len/4 - this.len*this.len/16))
+        }, nVertReverse = {
+            x: this.vrt.x - this.len/4,
+            y: this.vrt.y + Math.floor(Math.sqrt(this.len*this.len/4 - this.len*this.len/16))
+        }
+
+        return {
+            a: new Triangle(this.ctx, this.vrt, this.len/2),
+            b: new Triangle(this.ctx, newVert, this.len/2),
+            c: new Triangle(this.ctx, nVertReverse, this.len/2)
+        }
     }
 }

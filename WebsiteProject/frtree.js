@@ -6,7 +6,7 @@ var cman = new CanvasManagement(canvas);
 function FractalTree(len, ang, iter, intransX, intransY){
     ctx.save();
     ctx.translate(intransX, intransY);
-    Graphics.DrawLine(0, -len);
+    Graphics.DrawLine(ctx, 0, -len);
     ctx.translate(0, -len);
 
     if(iter > 0){
