@@ -20,11 +20,12 @@ body {
   padding-top: 20px;
 }
 body, html{
-height:100%;
-margin-right:0px;
-margin-bottom:-10px;
-margin-top
+ height:100%;
+ margin-right:0px;
+ margin-bottom:-10px;
+ margin-top: 0
 }
+
 .bg {
   
 background-image:url(https://wallpaperaccess.com/full/1140737.jpg);
@@ -144,18 +145,16 @@ margin-top:-10px;
 
 <script>
 
-var dropdown = document.getElementsByClassName("dropdown-btn");
-var i;
+var dropdown = document.getElementsByClassName("dropdown-btn"), i;
 
 for (i = 0; i < dropdown.length; i++) {
   dropdown[i].addEventListener("click", function() {
-  this.classList.toggle("active");
-  var dropdownContent = this.nextElementSibling;
-  if (dropdownContent.style.display === "block") {
-  dropdownContent.style.display = "none";
-  } else {
-  dropdownContent.style.display = "block";
-  }
+      this.classList.toggle("active");
+      var dropdownContent = this.nextElementSibling;
+
+      if (dropdownContent.style.display === "block")
+          dropdownContent.style.display = "none";
+      else dropdownContent.style.display = "block";
   });
 }
 </script>
