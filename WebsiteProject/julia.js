@@ -43,23 +43,19 @@ function draw(post){
                 if(Math.abs(x+y) > 4)
                     break;
             }
-            iter *= 2;
+            //iter *= 2;
 
             let index = (j + halfw + (i + halfh) * width) * 4, toComp = Math.floor(max/3);
             pixels[index+3] = 255;
 
-            if(iter < toComp){
-                pixels[index] = iter/max * (Math.random()+5) * 60;
-                pixels[index+1] = pixels[index+2] = 0;
-            } else if(iter > toComp && iter < toComp*2){
-                pixels[index] = iter/max * (Math.random()+5) * 60;
-                pixels[index+1] = iter/max * (Math.random()+5) * 65;
-                pixels[index+2] = 0;
-            } else if(iter > toComp*2 && iter < max){
-                pixels[index] = iter/max * (Math.random()+5) * 60;
-                pixels[index+1] = iter/max * (Math.random()+5) * 65;
-                pixels[index+2] = iter/max * (Math.random()+5) * 50;
-            } else pixels[index] = pixels[index+1] = pixels[index+2] = 0;
+            if(iter == max)
+                pixels[index] = pixels[index+1] = pixels[index+2] = 0;
+            else {
+                let hsbVal = Graphics.HSLtoRGB((iter * 20) % 360, 0.7, 0.6);
+                pixels[index] = hsbVal.r;
+                pixels[index + 1] = hsbVal.g;
+                pixels[index + 2] = hsbVal.b;
+            }
         }
 
         let imageData = new ImageData(pixels, width, height);

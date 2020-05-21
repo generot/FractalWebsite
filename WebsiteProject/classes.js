@@ -92,6 +92,48 @@ class Graphics {
         ctx.closePath();
         ctx.stroke();
     }
+
+    static HSLtoRGB(hue, sat, br){
+        if((hue >= 0 && hue <= 360) && (sat >= 0 && sat <= 1) && (br >= 0 && br <= 1)){
+            let c = (1 - Math.abs(2*br - 1)) * sat,
+            x = c * (1 - Math.abs((hue/60) % 2 - 1)),
+            m = br - c/2;
+
+            let primeR, primeG, primeB;
+            if(hue >= 0 && hue <= 60){
+                primeR = c;
+                primeG = x;
+                primeB = 0;
+            } else if(hue >= 60 && hue <= 120){
+                primeR = x;
+                primeG = c;
+                primeB = 0;
+            } else if(hue >= 120 && hue <= 180){
+                primeR = 0;
+                primeG = c;
+                primeB = x;
+            } else if(hue >= 180 && hue <= 240){
+                primeR = 0;
+                primeG = x;
+                primeB = c;
+            } else if(hue >= 240 && hue <= 300){
+                primeR = x;
+                primeG = 0;
+                primeB = c;
+            } else if(hue >= 300 && hue <= 360){
+                primeR = c;
+                primeG = 0;
+                primeB = x;
+            }
+
+            return {
+                r: (primeR + m) * 255,
+                g: (primeG + m) * 255,
+                b: (primeB + m) * 255
+            };
+
+        } else return 0;
+    }
 }
 
 class Triangle {

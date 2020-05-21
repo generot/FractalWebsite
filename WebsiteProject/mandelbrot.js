@@ -85,18 +85,14 @@ function draw(){
             let index = (j + x + (i + y) * canvas.width) * 4, toComp = Math.floor(max/3);
             pixels[index+3] = 255;
 
-            if(iterator < toComp){
-                pixels[index] = iterator/max/1.2 * (Math.random()+5) * 60;
-                pixels[index+1] = pixels[index+2] = 0;
-            } else if(iterator > toComp && iterator < toComp*2){
-                pixels[index] = iterator/max/1.4 * (Math.random()+5) * 60;
-                pixels[index+1] = iterator/max/1.7 * (Math.random()+5) * 65;
-                pixels[index+2] = 0;
-            } else if(iterator > toComp*2 && iterator < max){
-                pixels[index] = iterator/max/1.4 * (Math.random()+5) * 60;
-                pixels[index+1] = iterator/max/1.5 * (Math.random()+4) * 65;
-                pixels[index+2] = iterator/max/1.3 * (Math.random()+5) * 70;
-            } else pixels[index] = pixels[index+1] = pixels[index+2] = 0;
+            if(iterator == max)
+                pixels[index] = pixels[index+1] = pixels[index+2] = 0;
+            else {
+                let hsbVal = Graphics.HSLtoRGB((iterator * 20) % 360, 0.7, 0.6);
+                pixels[index] = hsbVal.r;
+                pixels[index + 1] = hsbVal.g;
+                pixels[index + 2] = hsbVal.b;
+            }
         }
 
     idata.data = pixels;
