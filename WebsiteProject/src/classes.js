@@ -171,3 +171,26 @@ class Triangle {
         }
     }
 }
+
+class Lsystem {
+    constructor(axiom, ...rules){
+        this.axiom = axiom;
+        this.ruleset = rules;
+    }
+
+    ApplyRules(iter) {
+        let modstr = "";
+        for(let i = 0; i < this.axiom.length; i++){
+            for(let j = 0; j < this.ruleset.length; j++){
+                //console.log(this.ruleset[j].b);
+                if(this.axiom[i] == this.ruleset[j].a){
+                    modstr += this.ruleset[j].b;
+                    break;
+                } else if(j == this.ruleset.length - 1) modstr += this.axiom[i];
+            }
+        }
+
+        this.axiom = modstr;
+        if(iter > 0) this.ApplyRules(iter-1);
+    }
+}

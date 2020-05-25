@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<style>
+    button {
+    background-color : rgb(182, 155, 0);
+    border-radius : 30px;
+    color : white;
+    text-align : center;
+    position : center;
+    box-shadow :0 5px grey;
+    border : rgb(168, 143, 0);
+    }
+    
+    button:hover {
+    background-color : yellow;
+    box-shadow :0 5px  rgb(149, 182, 0);
+    border :rgb(255, 224, 47);
+    }
+</style>
+<html>
+    <head>
+        <canvas id="cnv" width="700" height="700"></canvas>
+        <script src="../src/classes.js"></script>
+        <script src="../src/dcurve.js"></script>
+    </head>
+    <body>
+        <title>Драконова крива</title>
+        <br><button onclick="it++; ctx.save(); Setup(it); ctx.restore();">Продължи</button>
+        <button onclick="it = 0; ctx.save(); Setup(it); ctx.restore();">Възстанови</button><br>
+        <br><a href="../MainPage.html"><button>Назад към нач. стр.</button></a>
+    </body>
+</html>
