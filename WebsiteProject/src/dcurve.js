@@ -10,6 +10,7 @@ var rule1 = {
 },  axiom = "FX";
 
 var it = 0;
+canman.clear();
 
 function Setup(iter){
     canman.clear();
