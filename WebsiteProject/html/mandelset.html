@@ -1,7 +1,7 @@
 <style>
 body {
-    background: rgb(145,0,0);
-background: linear-gradient(0deg, rgba(145,0,0,1) 0%, rgba(34,0,0,1) 100%);
+background: rgb(145,0,0);
+background: linear-gradient(0deg, rgb(145,0,0) 0%, rgba(34,0,0,1) 100%);
 font-family : Verdana, Tahoma, sans-serif;
 text-align: center;
 }
@@ -11,15 +11,27 @@ canvas {
 h1 {
     color : white;
 }
-button {
-        background-color : rgb(182, 0, 0);
+.button1 {
+background-color : rgb(182, 0, 0);
 border-radius : 30px;
 color : white;
 text-align : center;
 position : center;
+margin-left: 10px;
 box-shadow :0 5px grey;
 border : rgb(168, 0, 0);
-    }
+}
+.button2 {
+background-color : rgb(182, 0, 0);
+border-radius : 30px;
+color : white;
+text-align : center;
+position : center;
+margin-left: 310px;
+margin-top: -570px;
+box-shadow :0 5px grey;
+border : rgb(168, 0, 0);
+}
 button:hover {
 background-color : grey;
 box-shadow :0 5px  rgb(182, 0, 0);
@@ -37,12 +49,13 @@ p{
     <head>
         <h1><b>Множеството на Манделброт</b></h1><br>
         <canvas id="myCanvas" width="600" height="600" onclick="setOffset(event)"></canvas>
-        <script src="classes.js"></script>
-        <script src="mandelbrot.js"></script>
+        <script src="../src/classes.js"></script>
+        <script src="../src/mandelbrot.js"></script>
     </head>
     <body>
         <title>Манделброт множество</title>
-        <button onclick="scale = 200; offset.x = offset.y = 0; factor = 1;"><b>Възстанови</b></button>
+        <button class="button1" onclick="scale = 200; offset.x = offset.y = 0; factor = 1;"><b>Възстанови</b></button>
+        <br><a href="../MainPage.html"><button class="button2">Назад към нач. стр.</button></a>
         <p><b>Приближи: Numpad '+'<br>Отдалечи: Numpad '-'</b></p>
         <style>
             button {position: absolute;}
