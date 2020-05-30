@@ -1,6 +1,5 @@
 let canvas = document.getElementById("myCanvas");
-let cont = canvas.getContext("2d"), idata = cont.getImageData(0, 0, canvas.width, canvas.height),
-pixels = idata.data;
+let cont = canvas.getContext("2d"), pixels = new Uint8ClampedArray(4*canvas.width*canvas.height);
 
 let scale = 200, defScale = scale, factor = 1, speed = 0.018888;
 let manager = new CanvasManagement(canvas);
@@ -20,7 +19,6 @@ function setOffset(event){
 }
 
 function setScale(zoom){
-    //let prevScale = scale;
     if(zoom) {
         scale += factor;
         factor = scale/defScale * 4;
@@ -41,25 +39,9 @@ window.addEventListener("keydown", function(event){
         setScale(false);
         break;
     }
-    //Експериментални движения
-    case 104: {
-        offset.y -= speed/scale * defScale;
-        break;
+    default: break;
     }
-    case 101: {
-        offset.y += speed/scale * defScale;
-        break;
-    }
-    case 100: {
-        offset.x -= speed/scale * defScale;
-        break;
-    }
-    case 102: {
-        offset.x += speed/scale * defScale;
-        break;
-    }
-    default: return;
-    }
+    
 });
 
 function draw(){
@@ -69,20 +51,21 @@ function draw(){
     for(let i = -y; i < y; i++)
         for(let j = -x; j < x; j++){
             let real = j/scale + offset.x, img = i/scale + offset.y;
+
             const constReal = real, constImg = img;
 
-            let iterator, max = 100;
+            let iterator, max = 50;
             for(iterator = 0; iterator < max; iterator++){
                 let sqA = real*real - img*img, 
                 sqB = 2*real*img;
-
+        
                 real = constReal + sqA;
                 img = constImg + sqB;
                 if(Math.abs(real + img) > 4)
                     break;
             }
 
-            let index = (j + x + (i + y) * canvas.width) * 4, toComp = Math.floor(max/3);
+            let index = (j + x + (i + y) * canvas.width) * 4;
             pixels[index+3] = 255;
 
             if(iterator == max)
@@ -94,8 +77,7 @@ function draw(){
                 pixels[index + 2] = hsbVal.b;
             }
         }
-
-    idata.data = pixels;
+    let idata = new ImageData(pixels, canvas.width, canvas.height);
     cont.putImageData(idata, 0, 0);
 }
 

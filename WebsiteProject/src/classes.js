@@ -5,14 +5,9 @@ class CanvasManagement{
     }
 
     clear(){
-        let texture = this.ctx.getImageData(0, 0, this.canvas.width, this.canvas.height).data;
-
-        for(let i = 0; i < this.canvas.height; i++)
-            for(let j = 0; j < this.canvas.width; j++){
-                let ind = (j + i * this.canvas.width) * 4;
-                texture[ind] = texture[ind+1] = texture[ind+2] = 255;
-                texture[ind+3] = 255;
-            }
+        let size = 4*this.canvas.width*this.canvas.height, texture = new Uint8ClampedArray(size);
+        for(let i = 0; i < size; i++)
+            texture[i] = 255;
     
         let newData = new ImageData(texture, this.canvas.width, this.canvas.height);
         this.ctx.putImageData(newData, 0, 0);
