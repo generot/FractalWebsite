@@ -6,9 +6,8 @@ class CanvasManagement{
 
     clear(){
         let size = 4*this.canvas.width*this.canvas.height, texture = new Uint8ClampedArray(size);
-        for(let i = 0; i < size; i++)
-            texture[i] = 255;
-    
+        texture.fill(0);
+
         let newData = new ImageData(texture, this.canvas.width, this.canvas.height);
         this.ctx.putImageData(newData, 0, 0);
     }
@@ -53,7 +52,10 @@ class Rectangle {
 
         this.ctx.closePath();
     }
-    Fill(){this.ctx.fillRect(this.posX, this.posY, this.width, this.height);}
+    Fill(color = "black"){
+        this.ctx.fillStyle = color;
+        this.ctx.fillRect(this.posX, this.posY, this.width, this.height);
+    }
 }
 
 class Square extends Rectangle {
@@ -78,13 +80,14 @@ class Square extends Rectangle {
 }
 
 class Graphics {
-    static DrawLine(ctx, x1, y1, x = 0, y = 0){
+    static DrawLine(ctx, x1, y1, color = "black", x = 0, y = 0){
         ctx.beginPath();
 
         ctx.moveTo(x,y);
         ctx.lineTo(x1, y1);
 
         ctx.closePath();
+        ctx.strokeStyle = color;
         ctx.stroke();
     }
 

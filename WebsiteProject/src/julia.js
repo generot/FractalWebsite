@@ -4,27 +4,24 @@ let ctx = canvas.getContext("2d");
 let width = canvas.width, height = canvas.height, manager = new CanvasManagement(canvas),
 pixels = new Uint8ClampedArray(4*width*height);
 
-let m0 = document.getElementById("mode0"), m1 = document.getElementById("mode1");
-
-var pos = {
-    x: 0,
-    y: 0
-};
-var tpos = {
-    x: 0,
-    y: 0
-};
+var len = 2, pos = [len];
+for(let i = 0; i < len; i++){
+    pos[i] = {
+        x: 0,
+        y: 0
+    };
+}
 
 window.addEventListener("mousemove", function(event){
-    pos.x = ((event.clientX % width)-width/2)/(width/2);
-    pos.y = ((event.clientY % height)-height/2)/(height/2);
+    pos[0].x = ((event.clientX % width)-width/2)/(width/2);
+    pos[0].y = ((event.clientY % height)-height/2)/(height/2);
 })
 
 function draw(post){
     manager.clear();
 
-    tpos.x = parseFloat(document.getElementById("input1").value);
-    tpos.y = parseFloat(document.getElementById("input2").value);
+    pos[1].x = parseFloat(document.getElementById("input1").value);
+    pos[1].y = parseFloat(document.getElementById("input2").value);
 
     let halfw = width/2, halfh = height/2;
     for(let i = -halfh; i < halfh; i++)
@@ -43,9 +40,8 @@ function draw(post){
                 if(Math.abs(x+y) > 4)
                     break;
             }
-            //iter *= 2;
 
-            let index = (j + halfw + (i + halfh) * width) * 4, toComp = Math.floor(max/3);
+            let index = (j + halfw + (i + halfh) * width) * 4;
             pixels[index+3] = 255;
 
             if(iter == max)
@@ -63,7 +59,7 @@ function draw(post){
 }
 
 var interval;
-interv(draw, 1000/60, pos);
+interv(draw, 1000/60, pos[0]);
 
 function interv(func, time, arg){
     interval = setInterval(func, time, arg);

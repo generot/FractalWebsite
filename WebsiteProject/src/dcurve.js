@@ -23,7 +23,7 @@ function Setup(iter){
 
     for(let i = 0; i < str.length - 1; i++){
         if(str[i] == 'F'){
-            Graphics.DrawLine(ctx, 0, -initLen);
+            Graphics.DrawLine(ctx, 0, -initLen, "white");
             ctx.translate(0, -initLen);
         } else if(str[i] == '+')
             ctx.rotate(CanvasManagement.ToRadians(90));
