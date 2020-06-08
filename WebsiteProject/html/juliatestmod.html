@@ -71,13 +71,16 @@ input[type=text]:hover {
 
         <script src="../src/classes.js"></script>
         <script src="../src/julia.js"></script>
-        <br><button class="button1" onclick="clearInterval(interval); draw(pos[1]); 
-            setTimeout(interv, 4000, draw, 1000/60, pos[0]);">Задаване</button>
-        <a href="../MainPage.html"><button class="button2">Назад към нач. стр.</button></a>
+        <br><button class="button1" onclick="clearInterval(interval); draw(pos[1]);">Задаване</button>
+        <button onclick="deg = 0; clearInterval(interval); interv(draw, 1000/60, pos[2]);">Тригонометрична координация</button>
+        <button onclick="clearInterval(interval); interv(draw, 1000/60, pos[0]);">Курсорна координация</button>
+        <a href="../MainPage_remake.html"><button class="button2">Назад към нач. стр.</button></a>
     </head>
     <footer>
-        <p>Ако въведете координати, програмата застава на пауза за 4 секунди и след това продължава<br>
-        Така можете да видите резултата от координатите, които сте въвели</p>
+        <p>Тригонометрична координация - Програмата приема стойностите, получени от тригонометричните 
+            функции - синус и косинус, като стойности на реалната и имагинерната част на приложеното
+            комплексно число, използвано за графирането на Джулия множеството, придавайки на получената
+            картина въртеливо движение</p>
     </footer>
     </body>
 </html>

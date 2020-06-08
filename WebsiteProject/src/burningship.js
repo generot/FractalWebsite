@@ -29,6 +29,8 @@ function setScale(zoom){
     }
 }
 
+function abs(value){ return value > 0 ? value : -value; }
+
 window.addEventListener("keydown", function(event){
     switch(event.which){
     case 107: {
@@ -53,28 +55,28 @@ function draw(){
 
             const constReal = real, constImg = img;
 
-            let iterator, max = 100;
+            let iterator, max = 50;
             for(iterator = 0; iterator < max; iterator++){
-                let areal = Math.abs(real), aimg = Math.abs(img);
+                let areal = abs(real), aimg = abs(img);
 
                 let sqA = real*real - img*img, 
                 sqB = 2*areal*aimg;
 
                 real = sqA + constReal;
                 img = sqB + constImg;
-                if(Math.abs(real + img) > 4)
+                if(real*real + img*img > 4)
                     break;
             }
 
-            let index = (j + x + (i + y) * canvas.width) * 4, toComp = Math.floor(max/3);
+            let index = (j + x + (i + y) * canvas.width) * 4;
             pixels[index+3] = 255;
 
             if(iterator == max)
                 pixels[index] = pixels[index + 1] = pixels[index + 2] = 0;
             else {
                 pixels[index + 2] = 0;
-                pixels[index] = iterator/max * (Math.random()+50) * 8;
-                pixels[index + 1] = iterator/max * (Math.random()+50) * 4;
+                pixels[index] = iterator/max * 400;
+                pixels[index + 1] = iterator/max * 200;
             }
         }
 

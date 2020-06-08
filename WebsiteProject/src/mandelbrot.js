@@ -61,7 +61,7 @@ function draw(){
         
                 real = constReal + sqA;
                 img = constImg + sqB;
-                if(Math.abs(real + img) > 4)
+                if(real * real + img * img > 4)
                     break;
             }
 
