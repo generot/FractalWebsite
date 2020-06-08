@@ -17,7 +17,7 @@ border-radius : 30px;
 color : white;
 text-align : center;
 position : center;
-margin-left: 10px;
+margin-left: 20px;
 box-shadow :0 5px grey;
 border : rgb(168, 0, 0);
 }
@@ -27,11 +27,16 @@ border-radius : 30px;
 color : white;
 text-align : center;
 position : center;
-margin-left: 310px;
-margin-top: -570px;
+margin-left: 320px;
+margin-top: -590px;
 box-shadow :0 5px grey;
 border : rgb(168, 0, 0);
 }
+
+.sl {
+margin-top: -500px;
+}
+
 button:hover {
 background-color : grey;
 box-shadow :0 5px  rgb(182, 0, 0);
@@ -54,7 +59,7 @@ p{
     </head>
     <body>
         <title>Манделброт множество</title>
-        <button class="button1" onclick="scale = 200; offset.x = offset.y = 0; factor = 1;"><b>Възстанови</b></button>
+        <button class="button1" onclick="scale = defScale; offset.x = -0.5; offset.y = 0; factor = 1;"><b>Възстанови</b></button><br>
         <br><a href="../MainPage_remake.html"><button class="button2">Назад към нач. стр.</button></a>
         <p><b>Приближи: Numpad '+'<br>Отдалечи: Numpad '-'</b></p>
         <style>

@@ -1,11 +1,11 @@
 let canvas = document.getElementById("myCanvas");
 let cont = canvas.getContext("2d"), pixels = new Uint8ClampedArray(4*canvas.width*canvas.height);
 
-let scale = 200, defScale = scale, factor = 1, speed = 0.018888;
+var scale = 180, defScale = scale, factor = 1, speed = 0.018888;
 let manager = new CanvasManagement(canvas);
 
 var offset = {
-    x: 0,
+    x: -0.5,
     y: 0
 };
 
@@ -71,7 +71,7 @@ function draw(){
             if(iterator == max)
                 pixels[index] = pixels[index+1] = pixels[index+2] = 0;
             else {
-                let hsbVal = Graphics.HSLtoRGB((iterator * 20) % 360, 0.7, 0.6);
+                let hsbVal = Graphics.HSLtoRGB((iterator*20) % 360, 0.6, 0.5);
                 pixels[index] = hsbVal.r;
                 pixels[index + 1] = hsbVal.g;
                 pixels[index + 2] = hsbVal.b;
