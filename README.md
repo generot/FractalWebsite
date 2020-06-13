@@ -1,4 +1,4 @@
-# WebsiteProject
+# FractalWebsite
 
 The fractal website has been developed by Martin Nakov, Emil Dojchinov and Venelin Novakov.
 
