@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <style>
+
+        h1{
+            padding-top: 65px;
+            padding-bottom: 65px;
+            text-align : center;
+            color : black;
+            font-family: 'Times New Roman', Times, serif;
+            font-size:40px;
+            background: rgba(0,0,0,.5);
+        }
+        p{
+            color : black;
+            text-align:left;
+            font-family:'Times New Roman', Times, serif;
+            font-size : 20px;
+        }
+        body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+    
+.sidebar {
+  height: 100%; 
+  width: 0; 
+  position: fixed; 
+  z-index: 1; 
+  top: 0;
+  left: 0;
+  background-color: #111; 
+  overflow-x: hidden; 
+  padding-top: 0; 
+  transition: 0.5s; 
+}
+
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+  background-color : grey;
+}
+
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+
+#main {
+  transition: margin-left .5s; 
+  padding: 20px;
+  background: rgba(128, 128, 128, 0.5);
+}
+
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+        .drop {
+  background-color: #111;
+  color: #818181;
+  padding: 16px;
+  font-size: 18px;
+  border: none;
+  transition : 0.3s;
+}
+.drop:hover{
+    color:white;
+    background-color : grey;
+}
+
+
+.dropdownbtn {
+  position: relative;
+  display: inline-block;
+}
+
+
+.content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.content a {
+  color: #818181;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  background-color:#111;
+}
+
+
+.content a:hover {background-color: coral;}
+
+
+.dropdownbtn:hover .content {display: block;}
+
+
+.dropdownbtn:hover .dropbtn {background-color: #111;}
+    </style>
+<div id="main_bar" class="sidebar">
+    <a href="javascript:void(0)" class="close" onclick="NavClose()">&times;</a>
+    <a href="#">За нас</a>
+    <a href="#">Какво е фрактал?</a>
+    <a href="#">Информация за различните фрактали</a>
+    <div class="dropdownbtn">
+
+        <button class="drop">Фрактали в страницата</button>
+    <div class="content">
+<a href="html/bship.html">Горящ кораб</a>
+<a href="html/dragoncurve.html">Драконова крива</a>
+<a href="html/fractaltree.html">Фрактално дърво</a>
+<a href="html/juliatestmod.html">Множеството на Джулия</a>
+<a href="html/lsystree.html">Л-системен клон</a>
+<a href="html/mandelset.html">Множеството на Манделброт</a>
+<a href="html/srp.html">Триъгилникът на Сиерпински</a>
+<a href="html/tsquare.html">Т-квадрат</a>
+    </div>
+</div>
+</div>
+<div id="main">
+    <button class="openbtn" onclick="NavOpen()">&#9776;</button>
+    <h1>ЗА НАС</h1>
+    <p>Това е кратка информация за нас и нашия background</p>
+  </div>
+  <h2 style="text-align:center">Това сме ние</h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="imgs/Novakov.jpg" alt="Novakov" style="width:100%">
+      <div class="container">
+        <h2>Jane Doe</h2>
+        <p class="title">Designer</p>
+        <p>Ученик на Туес, занимавал се със CSS, HTML, C и javascript до момента</p>
+ 
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="imgs/Nakov.jpg" alt="Nakov" style="width:100%">
+      <div class="container">
+        <h2>Mike Ross</h2>
+        <p class="title">Fractal dev</p>
+        <p>Ученик на ТУЕС, занимвал се е със Java, HTML, CSS, C </p>
+     
+       
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="imgs/rsz_doychinov.jpg" alt="Doychinov" style="width:100%">
+      <div class="container">
+        <h2>Emil Doychinov</h2>
+        <p class="title">Designer</p>
+        <p>Ученик на ТУЕС, занимвал се е със Java, HTML, CSS, C </p>
+        <p></p>
+   
+      </div>
+    </div>
+  </div>
+</div>
+  <script>
+ 
+function NavOpen() {
+  document.getElementById("main_bar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+
+function NavClose() {
+  document.getElementById("main_bar").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+}
+  </script>
+
+</body>
+</html>
