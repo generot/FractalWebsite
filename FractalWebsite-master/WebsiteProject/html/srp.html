@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<style>
+    button {
+    background-color : rgb(146, 0, 182);
+    border-radius : 30px;
+    color : white;
+    text-align : center;
+    position : center;
+    box-shadow :0 5px grey;
+    border : rgb(115, 0, 168);
+    }
+    
+    button:hover {
+    background-color : purple;
+    box-shadow :0 5px  rgb(182, 0, 143);
+    border :rgb(238, 47, 255);
+    }
+</style>
+<html>
+    <head>
+        <canvas id="myCanvas" width="600" height="600"></canvas>
+        <script src="../src/classes.js"></script>
+        <script src="../src/sierpinski.js"></script>
+
+        <br><button onclick="draw(tr, ++itr)">Продължи</button>
+        <button onclick="cman.clear(); itr = 1; draw(tr, itr)">Възстанови</button><br>
+        <br><a href="../MainPage_remake.html"><button>Назад към нач. стр.</button></a>
+    </head>
+    <body>
+        <title>Триъгълникът на Сиерпински</title>
+    </body>
+</html>

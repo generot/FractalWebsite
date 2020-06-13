@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<style>
+    button {
+    background-color : rgb(0, 12, 182);
+    border-radius : 50px;
+    color : white;
+    text-align : center;
+    position : center;
+    box-shadow :0 5px grey;
+    border : rgb(0, 64, 168);
+    }
+    
+    button:hover {
+    background-color : lightskyblue;
+    box-shadow :0 5px  rgb(0, 167, 182);
+    border :rgb(47, 50, 255);
+    }
+
+    body {
+        margin-top: 60px;
+        text-align: center;
+        background-image: url(https://www.publicdomainpictures.net/pictures/320000/velka/kosmos-universum-weltall-sterne-1582712491u8x.jpg);
+        height: 100%; 
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+<html>
+    <head>
+        <canvas id="cnv" width="800" height="800"></canvas>
+        <script src="../src/classes.js"></script>
+        <script src="../src/dcurve.js"></script>
+    </head>
+    <body>
+        <title>Драконова крива</title>
+        <br><button onclick="it++; ctx.save(); Setup(it); ctx.restore();">Продължи</button>
+        <button onclick="it = 0; ctx.save(); Setup(it); ctx.restore();">Възстанови</button><br>
+        <br><a href="../MainPage_remake.html"><button>Назад към нач. стр.</button></a>
+    </body>
+</html>
