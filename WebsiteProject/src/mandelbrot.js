@@ -1,13 +1,16 @@
 let canvas = document.getElementById("myCanvas");
-let cont = canvas.getContext("2d"), pixels = new Uint8ClampedArray(4*canvas.width*canvas.height);
+let cont = canvas.getContext("2d");
 
 var scale = 180, defScale = scale, factor = 1, speed = 0.018888, slider = document.getElementById("sldr");
-let manager = new CanvasManagement(canvas);
+
+let manager = new CanvasManagement(canvas), imData = cont.getImageData(0, 0, canvas.width, canvas.height),
+pixels = imData.data;
+
 
 var offset = {
     x: -0.5,
     y: 0
-};
+}, max = 50;
 
 function setOffset(event){
     let halfX = canvas.width/2, halfY = canvas.height/2;
@@ -30,15 +33,12 @@ function setScale(zoom){
 }
 
 window.addEventListener("keydown", function(event){
+    //Numpad input
     switch(event.which){
-    case 107: {
-        setScale(true);
-        break;
-    }
-    case 109: {
-        setScale(false);
-        break;
-    }
+    case 107: setScale(true); break; //'+'
+    case 109: setScale(false); break; //'-'
+    case 104: max < 500 ? max += 5 : 0; break; //'8'
+    case 105: max > 5 ? max -= 5 : 0; break; //'9'
     default: break;
     }
     
@@ -50,11 +50,13 @@ function draw(){
 
     for(let i = -y; i < y; i++)
         for(let j = -x; j < x; j++){
-            let real = j/scale + offset.x, img = i/scale + offset.y;
+            let index = (j + x + (i + y) * canvas.width) * 4,
+            real = j/scale + offset.x, img = i/scale + offset.y;
 
             const constReal = real, constImg = img;
 
-            let iterator, max = slider.value;
+            let iterator;
+            
             for(iterator = 0; iterator < max; iterator++){
                 let sqA = real*real - img*img, 
                 sqB = 2*real*img;
@@ -65,9 +67,8 @@ function draw(){
                     break;
             }
 
-            let index = (j + x + (i + y) * canvas.width) * 4;
             pixels[index+3] = 255;
-
+            
             if(iterator == max)
                 pixels[index] = pixels[index+1] = pixels[index+2] = 0;
             else {
@@ -77,8 +78,10 @@ function draw(){
                 pixels[index + 2] = hsbVal.b;
             }
         }
-    let idata = new ImageData(pixels, canvas.width, canvas.height);
-    cont.putImageData(idata, 0, 0);
+
+    imData.data = pixels;
+    cont.putImageData(imData, 0, 0);
 }
 
-setInterval(draw, 1000/60);
+setInterval(draw, 10/6);
+

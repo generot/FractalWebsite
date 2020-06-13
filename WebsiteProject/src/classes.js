@@ -4,9 +4,9 @@ class CanvasManagement{
         this.ctx = this.canvas.getContext("2d");
     }
 
-    clear(){
+    clear(val = 0){
         let size = 4*this.canvas.width*this.canvas.height, texture = new Uint8ClampedArray(size);
-        texture.fill(0);
+        texture.fill(val);
 
         let newData = new ImageData(texture, this.canvas.width, this.canvas.height);
         this.ctx.putImageData(newData, 0, 0);
@@ -24,7 +24,7 @@ class CanvasManagement{
         this.ctx.putImageData(newData, 0, 0);
     }
 
-    static ToRadians(deg){return deg * Math.PI/180;}
+    static ToRadians(deg){ return deg * Math.PI/180; }
 }
 
 class Rectangle {
@@ -36,7 +36,7 @@ class Rectangle {
         this.height = height;
     }
 
-    GetArea(){return this.width * this.height;}
+    GetArea(){ return this.width * this.height; }
     Draw(){
         this.ctx.beginPath();
         this.ctx.moveTo(this.posX, this.posY);
@@ -180,7 +180,6 @@ class Lsystem {
         let modstr = "";
         for(let i = 0; i < this.axiom.length; i++){
             for(let j = 0; j < this.ruleset.length; j++){
-                //console.log(this.ruleset[j].b);
                 if(this.axiom[i] == this.ruleset[j].a){
                     modstr += this.ruleset[j].b;
                     break;

@@ -16,7 +16,7 @@ color : white;
 text-align : center;
 position : center;
 margin-top: -590px;
-margin-left: 220px;
+margin-left: 320px;
 box-shadow :0 5px grey;
 border : rgb(168, 0, 0);
 }
@@ -53,9 +53,6 @@ p {color : white;}
         <h1><b>Множеството на Манделброт</b></h1><br>
         <canvas id="myCanvas" width="600" height="600" onclick="setOffset(event)"></canvas><br>
 
-        <br><label for="sldr"><b>Итерации</b></label><br>
-        <b>5</b><input type="range" min="5" max="100" value="50" id="sldr"><b> 100</b>
-
         <script src="../src/classes.js"></script>
         <script src="../src/mandelbrot.js"></script>
     </head>
@@ -63,7 +60,7 @@ p {color : white;}
         <title>Манделброт множество</title>
         <button class="button1" onclick="scale = defScale; offset.x = -0.5; offset.y = 0; factor = 1;"><b>Възстанови</b></button><br>
         <br><a href="../MainPage_remake.html"><button class="button2">Назад към нач. стр.</button></a>
-        <p><b>Приближи: Numpad '+'<br>Отдалечи: Numpad '-'</b></p>
+        <p><b>Приближи: Numpad '+'<br>Отдалечи: Numpad '-'<br>Увеличи итерациите: Numpad '8'<br>Намали итерациите: Numpad '9'</b></p>
         <style>
             button {position: absolute;}
         </style>
