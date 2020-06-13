@@ -1,32 +1,141 @@
 <!DOCTYPE html>
 <style>
+  .canvas {
+    text-align:center;
+  }
+    body{
+background: linear-gradient(0deg, rgb(0, 163, 27) 0%,     rgb(8, 83, 0) 100%);
+    }
+    .b2{
+      padding: 14px 28px;
+  font-size: 16px;
+  display: block;
+  width: 100%;
+  float:left;
+    }
+    .b1{
+      padding: 14px 28px;
+      font-size: 16px;
+  display: block;
+  width: 100%;
+  float:left;
+    }
+    .b1:hover {
+  color:rgb(202, 202, 202);
+background:#444;
+font-size:17px;
+    }
+    .b2:hover {
+  color:rgb(202, 202, 202);
+  background:#444;
+  font-size:17px;
+    }
     button {
-    background-color : rgb(146, 0, 182);
-    border-radius : 30px;
+    background-color : #111;
     color : white;
-    text-align : center;
-    position : center;
-    box-shadow :0 5px grey;
-    border : rgb(115, 0, 168);
+    border:none;
     }
     
-    button:hover {
-    background-color : purple;
-    box-shadow :0 5px  rgb(182, 0, 143);
-    border :rgb(238, 47, 255);
-    }
+
+.sidebar {
+  height: 100%; 
+  width: 0; 
+  position: fixed; 
+  z-index: 1; 
+  top: 0;
+  left: 0;
+  background-color: #111; 
+  overflow-x: hidden; 
+  padding-top: 60px; 
+  transition: 0.5s; 
+}
+
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 17px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+font-family:Verdana;
+}
+
+
+.sidebar a:hover {
+  color: rgb(202, 202, 202);
+  background:#444;
+}
+
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+
+#main {
+  transition: margin-left .5s; 
+  padding: 20px;
+}
+
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
 </style>
 <html>
-    <head>
-        <canvas id="myCanvas" width="600" height="600"></canvas>
-        <script src="../src/classes.js"></script>
-        <script src="../src/sierpinski.js"></script>
-
-        <br><button onclick="draw(tr, ++itr)">Продължи</button>
-        <button onclick="cman.clear(); itr = 1; draw(tr, itr)">Възстанови</button><br>
-        <br><a href="../index.html"><button>Назад към нач. стр.</button></a>
-    </head>
     <body>
+    <head>
+        <div id="mySidebar" class="sidebar">
+            <div class="controls" style="float : right">
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <p><button class="b1" onclick="draw(tr, ++itr)">Продължи</p>
+                <p><button class="b2" onclick="cman.clear(); itr = 1; draw(tr, itr)">Възстанови</button><br></p>
+                <a href="../index.html">Назад към началната страница</a>
+                </div>
+          </div>
+          
+          <div id="main">
+            <button class="openbtn" onclick="openNav()">&#9776; Опции</button>
+          </div>
+          <div class="canvas">
+            <canvas id="myCanvas" width="600" height="600"></canvas> 
+            <script src="../src/classes.js"></script>
+            <script src="../src/sierpinski.js"></script>
+            </div>
+    </head>
         <title>Триъгълникът на Сиерпински</title>
+        <script>
+            function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+}
+        </script>
     </body>
+   
+</div>
 </html>
