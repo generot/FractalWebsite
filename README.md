@@ -1,22 +1,17 @@
 # WebsiteProject
 
-Проектът е в папката WebsiteProjects, можете да разглеждате и другите файловe, които имам във Visual Studio Code,
-ако случайно искате, защото поради някаква причина, като направих repository-то, то display-на всичките файлове, 
-дето съм писал на VSCode и ме мързи да ги махам. Махнах повечето, останаха малко, ама тях не ги пипам, да не 
-стане нещо, че са ми важни.
+The fractal website has been developed by Martin Nakov, Emil Dojchinov and Venelin Novakov.
 
-Ако имате Git, ето едни полезни команди:
+Copyright © 2020 by Martin Nakov, Emil Dojchinov and Venelin Novakov.
 
-git add <име на файл> - Казвате на Git, че сте правили промени по някой файл
-
-git commit -m "first commit" - Затвърждавате промените, които сте правили, по който и да е файл
-
-git push origin <име на branch-a> - Пращате промените в GitHub и вече всеки може да ги вижда там(името на текущия branch е master)
-
-git pull - Файловете във вашето локално копие на repository-то се променят посредством промени правени от други хора по тях
-
-git clone <адрес на repository-то> - Теглите локално копие на repository-то на вашето устройство
-
-Всичко това можете да го правите и от GitHub без командите.
+The project/website can be freely distributed, recreated, and used
+under ALL circumstances(following the requirements of the GNU GPL v3.0) 
+IF AND ONLY IF somewhere in the modification/recreation
+it IS STATED that the original developers/creators of the
+Fractal Website are Martin Nakov, Emil Dojchinov and Venelin Novakov.
+The former statement is permitted by the GNU GPL v3.0 as protection of
+the rights of the original developers, therefore doing any of the actions
+stated above(distribution, recreation, etc.) without abiding by the additional
+requirement IS NOT PERMITTED.
 
 
