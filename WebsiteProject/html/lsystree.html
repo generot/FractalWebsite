@@ -1,41 +1,150 @@
 <!DOCTYPE html>
 <style>
+ <style>
+  .canvas {
+    
+    text-align:right;
+  }
+    body{
+background: linear-gradient(0deg, rgb(50,229,255) 0%,     rgb(45,206,229) 100%);
+text-align:centre;
+    }
+    .b2{
+      padding: 14px 28px;
+  font-size: 16px;
+  display: block;
+  width: 100%;
+  float:left;
+    background-color:rgb(70,70,70);
+    }
+    .b1{
+      padding: 14px 28px;
+      font-size: 16px;
+  display: block;
+  width: 100%;
+  float:left;
+  background-color:rgb(70,70,70);
+    }
+    .b1:hover {
+  color:rgb(202, 202, 202);
+background-color:rgb(150,150,150);
+font-size:17px;
+    }
+    .b2:hover {
+  color:rgb(202, 202, 202);
+background-color:rgb(150,150,150);
+  font-size:17px;
+    }
     button {
-    background-color : rgb(100, 110, 253);
-    border-radius : 50px;
+    background-color : #111;
     color : white;
-    text-align : center;
-    position : center;
-    box-shadow :0 5px grey;
-    border : rgb(174, 57, 251);
+    border:none;
     }
     
-    button:hover {
-    background-color : lightpink;
-    box-shadow :0 5px  rgb(57, 159, 255);
-    border :rgb(179, 47, 255);
-    }
 
-    body {
-        margin-top: 60px;
-        text-align: center;
-        background-image: url(https://wallpaperplay.com/walls/full/c/4/1/91779.jpg);
-        height: 100%; 
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
+.sidebar {
+  height: 100%; 
+  width: 0; 
+  position: fixed; 
+  z-index: 1; 
+  top: 0;
+  left: 0;
+  background-color: rgb(70,70,70); 
+  overflow-x: hidden; 
+  padding-top: 60px; 
+  transition: 0.5s; 
+}
+
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 17px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+font-family:Verdana;
+}
+
+
+.sidebar a:hover {
+  color: rgb(202, 202, 202);
+  background:#444;
+}
+
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: rgb(120,120,120);
+}
+
+
+#main {
+  transition: margin-left .5s; 
+  padding: 20px;
+}
+
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+    
 </style>
 <html>
-    <head>
-        <canvas id="canvas" width="800" height="800"></canvas>
+   <html>
+ <head>
+    <body>
+        <script>
+            function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+}
+        </script>
+         </head>
+    <div id="mySidebar" class="sidebar">
+            <div class="controls" style="float : right">
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+               <p><button class="b1" onclick="it++; ctx.save(); start(it); ctx.restore();">Продължи</button>
+               <p><button class="b2" onclick="it = 0; ctx.save(); start(it); ctx.restore();">Възстанови</button><br></p>
+               <a href="../index.html">Назад към начална страница</a>
+          </div>
+    </div>
+     <div id="main">
+            <button class="openbtn" onclick="openNav()">&#9776; Опции</button>
+          </div>
+
+          <div class="controls" style="float : right">
+    <div class="canvas">
+    <canvas id="canvas" width="700" height="700"></canvas>
         <script src="../src/classes.js"></script>
         <script src="../src/misc.js"></script>
-    </head>
-    <body>
+        </div>
+       </div>
         <title>Л-системен клон</title>
-        <br><button onclick="it++; ctx.save(); start(it); ctx.restore();">Продължи</button>
-        <button onclick="it = 0; ctx.save(); start(it); ctx.restore();">Възстанови</button><br>
-        <br><a href="../index.html"><button>Назад към нач. стр.</button></a>
+       
     </body>
 </html>
