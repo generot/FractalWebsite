@@ -1,35 +1,148 @@
 <!DOCTYPE html>
 <style>
+  .canvas {
+    text-align:center;
+  }
+    body{
+background: linear-gradient(0deg, rgb(0, 0, 0) 0%,     rgb(10, 10, 10) 100%);
+    }
+    .b2{
+      padding: 14px 28px;
+  font-size: 16px;
+  display: block;
+  width: 100%;
+  float:left;
+    background-color:rgb(70,70,70);
+    }
+    .b1{
+      padding: 14px 28px;
+      font-size: 16px;
+  display: block;
+  width: 100%;
+  float:left;
+  background-color:rgb(70,70,70);
+    }
+    .b1:hover {
+  color:rgb(202, 202, 202);
+background-color:rgb(150,150,150);
+font-size:17px;
+    }
+    .b2:hover {
+  color:rgb(202, 202, 202);
+background-color:rgb(150,150,150);
+  font-size:17px;
+    }
     button {
-    background-color : rgb(52, 182, 0);
-    border-radius : 30px;
+    background-color : #111;
     color : white;
-    text-align : center;
-    position : center;
-    box-shadow :0 5px grey;
-    border : rgb(0, 168, 84);
+    border:none;
     }
     
-    button:hover {
-    background-color : greenyellow;
-    box-shadow :0 5px  rgb(58, 182, 0);
-    border :rgb(47, 255, 193);
-    }
+
+.sidebar {
+  height: 100%; 
+  width: 0; 
+  position: fixed; 
+  z-index: 1; 
+  top: 0;
+  left: 0;
+  background-color: rgb(70,70,70); 
+  overflow-x: hidden; 
+  padding-top: 60px; 
+  transition: 0.5s; 
+}
+
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 17px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+font-family:Verdana;
+}
+
+
+.sidebar a:hover {
+  color: rgb(202, 202, 202);
+  background:#444;
+}
+
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: rgb(120,120,120);
+}
+
+
+#main {
+  transition: margin-left .5s; 
+  padding: 20px;
+}
+
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
 </style>
+
+     
 <html>
-    <head>
-        <canvas id="canvas" width="600" height="600"></canvas>
-
-        <br><button onclick="setup(newSq, 0, cnt); cnt++;">Изпълни</button>
-        <button onclick="manager.clear(); newSq.a.Fill(); cnt = 0;">Възстанови</button><br>
-
-        <script src="../src/classes.js"></script>
-        <script src="../src/tsqr.js"></script>
-    </head>
-    
+ <head>
     <body>
-        <title>Т-квадрат</title>
-        <br><br><a href="https://en.wikipedia.org/wiki/T-square_(fractal)"><button>Информация за Т-квадрата</button></a><br>
-        <br><a href="../index.html"><button>Назад към нач. стр.</button></a>
+        <script>
+            function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+}
+        </script>
+         </head>
+   
+        <div id="mySidebar" class="sidebar">
+            <div class="controls" style="float : right">
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <p><button class="b1" onclick="setup(newSq, 0, cnt); cnt++;">Изпълни</p>
+             <p><button class="b2" onclick="manager.clear(); newSq.a.Fill(); cnt = 0;">Възстанови</button><br></p>
+                <a href="../index.html">Назад към начална страница</a>
+                </div>
+          </div>
+          
+          <div id="main">
+            <button class="openbtn" onclick="openNav()">&#9776; Опции</button>
+          </div>
+          <div class="canvas">
+            <canvas id="canvas" width="600" height="600"></canvas> 
+            <script src="../src/classes.js"></script>
+            <script src="../src/tsqr.js"></script>
+            </div>
+   
+        <title>T-square</title>
+    
     </body>
+   
+</div>
 </html>
