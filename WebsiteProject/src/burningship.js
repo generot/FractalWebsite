@@ -32,15 +32,9 @@ function setScale(zoom){
 function abs(value){ return value > 0 ? value : -value; }
 
 window.addEventListener("keydown", function(event){
-    switch(event.which){
-    case 107: {
-        setScale(true);
-        break;
-    }
-    case 109: {
-        setScale(false);
-        break;
-    }
+    switch(event.code){
+    case "NumpadAdd": setScale(true); break;
+    case "NumpadSubtract": setScale(false); break;
     default: return;
     }
 });
