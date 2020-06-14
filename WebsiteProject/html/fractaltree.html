@@ -1,38 +1,44 @@
 <!DOCTYPE html>
 <style>
-button {
-background-color : rgb(0, 115, 182);
-border-radius : 30px;
-color : white;
-text-align : center;
-position : center;
-box-shadow :0 5px grey;
-border : rgb(0, 11, 168);
-}
+     .canvas {
+       
+       text-align:center;
+     }
+       body{
+   background: linear-gradient(0deg, rgb(255,215,0) 0%,     rgb(218,165,32) 100%);
+   text-align:center;
+       }
 
-button:hover {
-background-color : lightblue;
-box-shadow :0 5px  rgb(0, 115, 182);
-border :rgb(47, 224, 255);
-}
-</style>
+
+
+  
+   
+       
+   </style>
 
 <html>
-    <head>
+    <body> 
+      
+       
+       
+    
+        <br><a href="../index.html"><button>Назад към нач. стр.</button></a>
+            <div class="canvas">
         <canvas id="canvas" width="600" height="600"></canvas>
+        
+        
+        <script src="../src/classes.js"></script>
+        <script src="../src/frtree.js"></script>
+    </div>
+
         <br><label for="mySlider">Градусно разграничаване</label>
         <br><input type="range" min="1" max="360" value="20" class="slider" id="mySlider"><br>
 
         <br><label for="Slider">Дължина</label>
-        <br><input type="range" min="10" max="300" value="100" class="slider" id="Slider"><br>
-        
-        <script src="../src/classes.js"></script>
-        <script src="../src/frtree.js"></script>
-    </head>
-    <body>
+        <br><input type="range" min="50" max="300" value="200" class="slider" id="Slider"><br>
         <title>Фрактално дърво</title>
         <br><button onclick="iterations++;">Продължи</button><br>
         <br><button onclick="iterations = 1;">Възстанови</button><br>
-        <br><a href="../index.html"><button>Назад към нач. стр.</button></a>
-    </body>
+      </body>
+  
 </html>
