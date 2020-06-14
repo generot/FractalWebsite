@@ -1,248 +1,360 @@
 <!DOCTYPE html>
 <html>
+<title>Информация</title>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-.txtstyle{
-font-family:Verdana;
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .txtstyle {
+      font-family: Verdana;
 
-padding:20px;
-background-color:rgb(195, 36, 36);
-color:whitesmoke;
-opacity:80%
-}
-.txtstyle:hover{
-opacity:100%;
+      padding: 20px;
+      background-color: rgb(195, 36, 36);
+      color: whitesmoke;
+      opacity: 80%
+    }
 
-
-
-}
-.txtstyle2{
-font-family:Verdana;
-
-padding:20px;
-background-color:rgb(52, 228, 255);
-color:rgb(233, 233, 233);
-opacity:60%
-}
-.txtstyle2:hover{
-opacity:100%;
+    .txtstyle:hover {
+      opacity: 100%;
 
 
 
-}
-.txtstyle3{
-font-family:Verdana;
+    }
 
-padding:20px;
-background-color:rgb(255,215,0);
-color:rgb(0, 0, 0);
-opacity:80%
-}
-.txtstyle3:hover{
-opacity:100%;
+    .txtstyle2 {
+      font-family: Verdana;
 
+      padding: 20px;
+      background-color: rgb(52, 157, 255);
+      color: rgb(233, 233, 233);
+      opacity: 60%
+    }
 
-
-}.txtstyle4{
-font-family:Verdana;
-
-padding:20px;
-background-color:rgb(214, 214, 214);
-color:rgb(0, 0, 0);
-opacity:80%;
-border:thin;
-}
-.txtstyle4:hover{
-opacity:100%;
+    .txtstyle2:hover {
+      opacity: 100%;
 
 
 
-}
-.txtstyle5{
-font-family:Verdana;
+    }
 
-padding:20px;
-background-color:rgb(0, 163, 27);
-color:rgb(192, 0, 0);
-opacity:80%
-}
-.txtstyle5:hover{
-opacity:100%;
+    .txtstyle3 {
+      font-family: Verdana;
 
+      padding: 20px;
+      background-color: rgb(255, 215, 0);
+      color: rgb(0, 0, 0);
+      opacity: 80%
+    }
 
-
-}
+    .txtstyle3:hover {
+      opacity: 100%;
 
 
-#more {display: none;}
-</style>
+
+    }
+
+    .txtstyle4 {
+      font-family: Verdana;
+
+      padding: 20px;
+      background-color: rgb(214, 214, 214);
+      color: rgb(0, 0, 0);
+      opacity: 80%;
+      border: thin;
+    }
+
+    .txtstyle4:hover {
+      opacity: 100%;
+
+
+
+    }
+
+    .txtstyle5 {
+      font-family: Verdana;
+
+      padding: 20px;
+      background-color: rgb(0, 163, 27);
+      color: rgb(224, 219, 219);
+      opacity: 80%
+    }
+
+    .txtstyle5:hover {
+      opacity: 100%;
+
+
+
+    }
+
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: rgb(93, 20, 20);
+      overflow-x: hidden;
+      padding-top: 0;
+      transition: 0.5s;
+    }
+
+
+    .sidebar a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #d3cfcf;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      color: #f1f1f1;
+      background-color: grey;
+    }
+
+
+    .sidebar .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+
+
+    .openbtn {
+      font-size: 20px;
+      cursor: pointer;
+      background-color: rgb(90, 25, 25);
+      color: white;
+      padding: 10px 15px;
+      border: none;
+    }
+
+    .openbtn:hover {
+      background-color: #444;
+    }
+
+
+    #main {
+      transition: margin-left .5s;
+      padding: 20px;
+      background: rgba(128, 128, 128, 0.5);
+    }
+
+
+    @media screen and (max-height: 450px) {
+      .sidebar {
+        padding-top: 15px;
+      }
+
+      .sidebar a {
+        font-size: 18px;
+      }
+    }
+
+    #more {
+      display: none;
+    }
+  </style>
 </head>
+
 <body>
-<div class="txtstyle">
-<h2>1.Escape-time фрактали:</h2>
-<p>Escape-time фракталите се изобразяват, чрез следене на броя итерации за дадени координати<br>
-    (реална и имагинерна част на комплексно число) в комплексната равнина.<span id="dots">...</span><span id="more"><br>Основата за получаване на тези фрактали<br>
-    е тяхната итерирана функция. Дава се някаква стойност(най-често от комплексен вид)<br>
-    на параметъра/параметрите на итерираната функция и тази процедура отново се повтаря<br>
-    като този път параметърът ще бъде резултатът от предишната итерация на функцията.<br>
-    Това се повтаря даден брой пъти(колкото повече, толкова по-точна е получената картина<br>
-    на фрактала), като ако резултатът надвиши дадена граница, се приема, че той "тръгва към безкрайност",<br>
-    следователно избраното комплексно число не е част от тялото на фрактала, а ако резултатът остане под <br>
-    дадената граница и функцията стигне максимум броя итерации, които са и зададени, се приема, че това<br>
-    комплексно число е част от тялото на фрактала. При "тръгване към безкрайност" на дадено комплексно<br>
-    число, итерирането на функцията се прекратява. Затова на английски тази група фрактали се нарича<br>
-    "Escape-time" фрактали, т.е "Фрактали получени въз основа на някакво изходно условие".<br>
-    Пикселът с екранни координати, отговарящи на координатите на даденото число в комплексната равнина <br>
-    бива оцветен в цвят, отговарящ на броя итерации, които са отнели това комплексно число<br>
-    да "тръгне към безкрайност" или да остане под ограничението. Такива фрактали са:<br>
+  <div class="txtstyle">
+    <h2>1.Escape-time фрактали:</h2>
+    <p><b>Escape-time фракталите се изобразяват, чрез следене на броя итерации за дадени координати<br>
+      (реална и имагинерна част на комплексно число) в комплексната равнина.<span id="dots">...</span><span
+        id="more"><br>Основата за получаване на тези фрактали<br>
+        е тяхната итерирана функция. Дава се някаква стойност(най-често от комплексен вид)<br>
+        на параметъра/параметрите на итерираната функция и тази процедура отново се повтаря<br>
+        като този път параметърът ще бъде резултатът от предишната итерация на функцията.<br>
+        Това се повтаря даден брой пъти(колкото повече, толкова по-точна е получената картина<br>
+        на фрактала), като ако резултатът надвиши дадена граница, се приема, че той "тръгва към безкрайност",<br>
+        следователно избраното комплексно число не е част от тялото на фрактала, а ако резултатът остане под <br>
+        дадената граница и функцията стигне максимум броя итерации, които са и зададени, се приема, че това<br>
+        комплексно число е част от тялото на фрактала. При "тръгване към безкрайност" на дадено комплексно<br>
+        число, итерирането на функцията се прекратява. Затова на английски тази група фрактали се нарича<br>
+        "Escape-time" фрактали, т.е "Фрактали получени въз основа на някакво изходно условие".<br>
+        Пикселът с екранни координати, отговарящи на координатите на даденото число в комплексната равнина <br>
+        бива оцветен в цвят, отговарящ на броя итерации, които са отнели това комплексно число<br>
+        да "тръгне към безкрайност" или да остане под ограничението. Такива фрактали са:<br>
         -Множеството на Беноа Манделброт<br>
         -Множеството на Гастон Жулиа<br>
         -Горящият кораб<br>
-    
-    И трите фрактала споделят една и съща основна формула за итерация: f(z) = z^2 + c, <br>като z и с са комплексни числа.
-    В случая на множеството на Манделброт, 'с' е константа,<br> докато 'z' е променлива, в случая на множеството на Жулиа,
-    'z' е константа, а 'с' е променлива,<br> като интересно свойство на Жулиа множеството е, че ако реалната и имагинерната
-    част на 'с' са в рамките на множеството на Манделброт, <br>Жулиа множеството за тези координати е запълнено, докато за
-    всяка друга двойка координати в комплексната равнина, не намираща се в Манделброт множ.<br>, той е разделен. Формулата
-    на горящия кораб е почти същата като <br>на Манделброт множ., като единствената разлика е, че като параметър се дава
-    абсолютната стойност<br> на входното комплексно число(т.е. |a| + |bi| => а - реална част, bi- имагинерна част)<br>.</span></p>
 
-<button onclick="myFunction()" id="myBtn">Read more</button>
-</div>
-<div class="txtstyle2">
-            <h2>2.Л-системни фрактали:</h2>
-<p>Това са фрактали, които са образувани от правилата, дадени в една "Л-система"(<a href="https://en.wikipedia.org/wiki/L-system">Learn more</a>)<br><span id="dots2">...</span><span id="more2" style=display:none>Започваме с една аксиома, която бива преобразувана в <br>изречение, което по правилата се получава
-    от буквата, която представлява аксиомата и итерираме този процес<br> даден брой пъти, като така получаваме л-системни фрактали. В нашия
-    проект, това са:<br>
+        И трите фрактала споделят една и съща основна формула за итерация: f(z) = z^2 + c, <br>като z и с са комплексни
+        числа.
+        В случая на множеството на Манделброт, 'с' е константа,<br> докато 'z' е променлива, в случая на множеството на
+        Жулиа,
+        'z' е константа, а 'с' е променлива,<br> като интересно свойство на Жулиа множеството е, че ако реалната и
+        имагинерната
+        част на 'с' са в рамките на множеството на Манделброт, <br>Жулиа множеството за тези координати е запълнено,
+        докато за
+        всяка друга двойка координати в комплексната равнина, не намираща се в Манделброт множ.<br>, той е разделен.
+        Формулата
+        на горящия кораб е почти същата като <br>на Манделброт множ., като единствената разлика е, че като параметър се
+        дава
+        абсолютната стойност<br> на входното комплексно число(т.е. |a| + |bi| => а - реална част, bi- имагинерна
+        част)</b><br>.</span></p>
+
+    <button onclick="myFunction()" id="myBtn">Виж повече</button>
+  </div>
+  <div class="txtstyle2">
+    <h2>2.Л-системни фрактали:</h2>
+    <p><b>Това са фрактали, които са образувани от правилата, дадени в една "Л-система"(<a
+        href="https://en.wikipedia.org/wiki/L-system">Научете повече</a>)<br><span id="dots2">...</span><span id="more2"
+        style=display:none>Започваме с една аксиома, която бива преобразувана в <br>изречение, което по правилата се
+        получава
+        от буквата, която представлява аксиомата и итерираме този процес<br> даден брой пъти, като така получаваме
+        л-системни фрактали. В нашия
+        проект, това са:<br>
         -Драконовата крива<br>
-        -Л-системния клон</span></p>
-        <button onclick="OpenClose()" id="myBtn2">Read more</button>
-</div>
+        -Л-системния клон</b></span></p>
+    <button onclick="OpenClose()" id="myBtn2">Виж повече</button>
+  </div>
 
 
 
-<div class="txtstyle3">
-<h2>3.Фрактално дърво:</h2>
-<p>Фракталното дърво, подобно на л-системата, също следва<br><span id="dots3">...</span><span id="more3" style=display:none>дадени правила за образуването си, но то е едно единствено и
-    няма аксиома или производни на нея изречения.</span></p>
-        <button onclick="OpenClose2()" id="myBtn3">Read more</button>
+  <div class="txtstyle3">
+    <h2>3.Фрактално дърво:</h2>
+    <p><b>Фракталното дърво, подобно на л-системата, също следва<br><span id="dots3">...</span><span id="more3"
+        style=display:none>дадени правила за образуването си, но то е едно единствено и
+        няма аксиома или производни на нея изречения.</b></span></p>
+    <button onclick="OpenClose2()" id="myBtn3">Виж повече</button>
 
-</div>
-<div class="txtstyle4">
+  </div>
+  <div class="txtstyle4">
     <h2>4.T-квадрат:</h2>
-    <p>Това е фрактал, който представлява един центриран квадрат,<span id="dots4">...</span><span id="more4" style=display:none> като при всяка итерация,<br> се рисуват 4 нови квадрата
-със страна 2 пъти по-малка от тази на предишния и се центрират на върховете на предишния квадрат.</span></p>
-            <button onclick="OpenClose3()" id="myBtn4">Read more</button>
-    
-    </div>
+    <p><b>Това е фрактал, който представлява един центриран квадрат,<span id="dots4">...</span><span id="more4"
+        style=display:none> като при всяка итерация,<br> се рисуват 4 нови квадрата
+        със страна 2 пъти по-малка от тази на предишния и се центрират на върховете на предишния квадрат.</b></span></p>
+    <button onclick="OpenClose3()" id="myBtn4">Виж повече</button>
 
-    <div class="txtstyle5">
-        <h2>5.Триъгълник на Сиерпински:</h2>
-        <p>Кръстен е на полския математик Вацлав Сиерпински, който наблюдава математическите му свойства.<span id="dots5">...</span><span id="more5" style=display:none>  Това е триъгълник,<br> който
-            се разделя на 3 нови триъгълника, като винаги два от техните върхове са среди на едни от страните на големия триъгълник,
-            а третия връх е също и връх на големия триъгълник.<br> Страните на вътрешните триъгълници се явяват средни отсечки на триъгълника,<br>
-            в който се намират.</span></p>
-                <button onclick="OpenClose4()" id="myBtn5">Read more</button>
-        
-        </div>
-        
+  </div>
 
+  <div class="txtstyle5">
+    <h2>5.Триъгълник на Сиерпински:</h2>
+    <p><b>Кръстен е на полския математик Вацлав Сиерпински, който наблюдава математическите му свойства.<span
+        id="dots5">...</span><span id="more5" style=display:none> Това е триъгълник,<br> който
+        се разделя на 3 нови триъгълника, като винаги два от техните върхове са среди на едни от страните на големия
+        триъгълник,
+        а третия връх е също и връх на големия триъгълник.<br> Страните на вътрешните триъгълници се явяват средни
+        отсечки на триъгълника,<br>
+        в който се намират.</b></span></p>
+    <button onclick="OpenClose4()" id="myBtn5">Виж повече</button>
 
+  </div>
 
-<script>
-function myFunction() {
-  var dots = document.getElementById("dots");
-  var moreText = document.getElementById("more");
-  var btnText = document.getElementById("myBtn");
-
-
-  if (dots.style.display === "none") {
-    dots.style.display = "inline";
-    btnText.innerHTML = "Read more"; 
-    moreText.style.display = "none";
-  } else {
-    dots.style.display = "none";
-    btnText.innerHTML = "Read less"; 
-    moreText.style.display = "inline";
-  }
-  
-
-}
-
-function OpenClose(){
-    var dots2 = document.getElementById("dots2");
-  var moreText2 = document.getElementById("more2");
-  var btnText2 = document.getElementById("myBtn2")
-
-    if (dots2.style.display === "none") {
-    dots2.style.display = "inline";
-    btnText2.innerHTML = "Read more"; 
-    moreText2.style.display = "none";
-  } else {
-    dots2.style.display = "none";
-    btnText2.innerHTML = "Read less"; 
-    moreText2.style.display = "inline";
-  }
+  <div id="main_bar" class="sidebar">
+    <a href="javascript:void(0)" class="close" onclick="NavClose()">&times;</a>
+    <a href="aboutUs.html">За нас</a>
+    <a href="../index.html">Към началната страница</a>
+  </div>
+  <div id="main">
+    <button class="openbtn" onclick="NavOpen()">&#9776;</button>
+    <script>
+      function myFunction() {
+        var dots = document.getElementById("dots");
+        var moreText = document.getElementById("more");
+        var btnText = document.getElementById("myBtn");
 
 
+        if (dots.style.display === "none") {
+          dots.style.display = "inline";
+          btnText.innerHTML = "Виж повече";
+          moreText.style.display = "none";
+        } else {
+          dots.style.display = "none";
+          btnText.innerHTML = "Скрий";
+          moreText.style.display = "inline";
+        }
 
-}
-function OpenClose2(){
-    var dots3 = document.getElementById("dots3");
-  var moreText3 = document.getElementById("more3");
-  var btnText3 = document.getElementById("myBtn3")
 
-    if (dots3.style.display === "none") {
-    dots3.style.display = "inline";
-    btnText3.innerHTML = "Read more"; 
-    moreText3.style.display = "none";
-  } else {
-    dots3.style.display = "none";
-    btnText3.innerHTML = "Read less"; 
-    moreText3.style.display = "inline";
-  }
+      }
+
+      function OpenClose() {
+        var dots2 = document.getElementById("dots2");
+        var moreText2 = document.getElementById("more2");
+        var btnText2 = document.getElementById("myBtn2");
+
+        if (dots2.style.display === "none") {
+          dots2.style.display = "inline";
+          btnText2.innerHTML = "Виж повече";
+          moreText2.style.display = "none";
+        } else {
+          dots2.style.display = "none";
+          btnText2.innerHTML = "Скрий";
+          moreText2.style.display = "inline";
+        }
 
 
 
-}
-function OpenClose3(){
-    var dots4 = document.getElementById("dots4");
-  var moreText4 = document.getElementById("more4");
-  var btnText4 = document.getElementById("myBtn4")
+      }
+      function OpenClose2() {
+        var dots3 = document.getElementById("dots3");
+        var moreText3 = document.getElementById("more3");
+        var btnText3 = document.getElementById("myBtn3");
 
-    if (dots4.style.display === "none") {
-    dots4.style.display = "inline";
-    btnText4.innerHTML = "Read more"; 
-    moreText4.style.display = "none";
-  } else {
-    dots4.style.display = "none";
-    btnText4.innerHTML = "Read less"; 
-    moreText4.style.display = "inline";
-  }
-
-
-
-}
-function OpenClose4(){
-    var dots5 = document.getElementById("dots5");
-  var moreText5 = document.getElementById("more5");
-  var btnText5 = document.getElementById("myBtn5")
-
-    if (dots5.style.display === "none") {
-    dots5.style.display = "inline";
-    btnText5.innerHTML = "Read more"; 
-    moreText5.style.display = "none";
-  } else {
-    dots5.style.display = "none";
-    btnText5.innerHTML = "Read less"; 
-    moreText5.style.display = "inline";
-  }
+        if (dots3.style.display === "none") {
+          dots3.style.display = "inline";
+          btnText3.innerHTML = "Виж повече";
+          moreText3.style.display = "none";
+        } else {
+          dots3.style.display = "none";
+          btnText3.innerHTML = "Скрий";
+          moreText3.style.display = "inline";
+        }
 
 
 
-}
-</script>
+      }
+      function OpenClose3() {
+        var dots4 = document.getElementById("dots4");
+        var moreText4 = document.getElementById("more4");
+        var btnText4 = document.getElementById("myBtn4");
 
+        if (dots4.style.display === "none") {
+          dots4.style.display = "inline";
+          btnText4.innerHTML = "Виж повече";
+          moreText4.style.display = "none";
+        } else {
+          dots4.style.display = "none";
+          btnText4.innerHTML = "Скрий";
+          moreText4.style.display = "inline";
+        }
+
+
+
+      }
+      function OpenClose4() {
+        var dots5 = document.getElementById("dots5");
+        var moreText5 = document.getElementById("more5");
+        var btnText5 = document.getElementById("myBtn5");
+
+        if (dots5.style.display === "none") {
+          dots5.style.display = "inline";
+          btnText5.innerHTML = "Виж повече";
+          moreText5.style.display = "none";
+        } else {
+          dots5.style.display = "none";
+          btnText5.innerHTML = "Скрий";
+          moreText5.style.display = "inline";
+        }
+      }
+
+      function NavOpen() {
+        document.getElementById("main_bar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+      }
+
+      function NavClose() {
+        document.getElementById("main_bar").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+      }
+    </script>
+  </div>
 </body>
+
 </html>
