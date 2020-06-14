@@ -4,8 +4,8 @@ let ctx = canvas.getContext("2d");
 var manager = new CanvasManagement(canvas);
 
 var centLen = 300;
-let newSq = {
-    a: new Square(ctx, canvas.width/2 - centLen/2, canvas.height/2 - centLen/2, centLen)
+let newSq =  {
+    a: new Square(ctx, canvas.width/2 - centLen/2, canvas.height/2 - centLen/2, centLen, "white")
 };
 
 var cnt = 0;
