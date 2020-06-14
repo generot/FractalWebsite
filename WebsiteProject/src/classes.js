@@ -52,28 +52,29 @@ class Rectangle {
 
         this.ctx.closePath();
     }
-    Fill(color = "black"){
+    Fill(color){
         this.ctx.fillStyle = color;
         this.ctx.fillRect(this.posX, this.posY, this.width, this.height);
     }
 }
 
 class Square extends Rectangle {
-    constructor(ctx, posX, posY, length){
+    constructor(ctx, posX, posY, length, col = "black"){
         super(ctx, posX, posY, length, length);
         this.length = length;
-        this.Fill();
+        this.col = col;
+        this.Fill(this.col);
     }
     quadruple(){
         let i = {
             a: new Square(this.ctx, this.posX - this.length/4, 
-                this.posY - this.length/4, this.length/2),
+                this.posY - this.length/4, this.length/2, this.col),
             b: new Square(this.ctx, this.posX + 3*this.length/4, 
-                this.posY - this.length/4, this.length/2),
+                this.posY - this.length/4, this.length/2, this.col),
             c: new Square(this.ctx, this.posX - this.length/4, 
-                this.posY + 3*this.length/4, this.length/2),
+                this.posY + 3*this.length/4, this.length/2, this.col),
             d: new Square(this.ctx, this.posX + 3*this.length/4, 
-                this.posY + 3*this.length/4, this.length/2)
+                this.posY + 3*this.length/4, this.length/2, this.col)
         };
         return i;
     }
