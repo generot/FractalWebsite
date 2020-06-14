@@ -78,4 +78,4 @@ function draw(){
     cont.putImageData(idata, 0, 0);
 }
 
-setInterval(draw, 1000/60);
+var interval = setInterval(draw, 10/6);
