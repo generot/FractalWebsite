@@ -1,64 +1,155 @@
+
 <style>
-body {
-    background: rgb(145,0,0);
-background: linear-gradient(0deg, rgba(145,0,0,1) 0%, rgba(34,0,0,1) 100%);
-font-family : Verdana, Tahoma, sans-serif;
-text-align: center;
-}
-canvas {
-    border-radius : 30px;
-}
-h1 {
-    color : white;
-}
-.button1 {
-background-color : rgb(182, 0, 0);
-border-radius : 30px;
-color : white;
-text-align : center;
-position : center;
-margin-left: 10px;
-box-shadow :0 5px grey;
-border : rgb(168, 0, 0);
-}
-.button2 {
-background-color : rgb(182, 0, 0);
-border-radius : 30px;
-color : white;
-text-align : center;
-position : center;
-margin-left: 310px;
-margin-top: -570px;
-box-shadow :0 5px grey;
-border : rgb(168, 0, 0);
-}
-button:hover {
-background-color : grey;
-box-shadow :0 5px  rgb(182, 0, 0);
-border :rgb(255, 47, 47);
-}
-
-
-p{
-    color : white;
-}
-
-</style>
-<!DOCTYPE html>
-<html>
-    <head>
-        <h1><b>Горящият кораб(Частен случай на Манделброт)</b></h1><br>
-        <canvas id="myCanvas" width="600" height="600" onclick="setOffset(event)"></canvas>
+    .canvas {
+      text-align:center;
+    }
+    p{
+        font-family:verdana;
+        font-size:17px;
+        transition:0.3s;
+        padding: 14px 28px;
+    }
+    p:hover{
+       background: rgb(216, 115, 0);
+  color:rgb(202, 202, 202);
+    }
+      body{
+          text-align:center;
+  background: linear-gradient(150deg, rgb(216, 115, 0) 0%,     black 100%);
+      }
+      .b1{
+        padding: 14px 28px;
+        font-size: 17px;
+        background:rgb(87, 47, 1);
+    display: block;
+    width: 100%;
+    float:left;
+    transition:0.3s;
+      }
+      .b1:hover {
+    color:whitesmoke;
+  background:rgb(216, 115, 0);
+  font-size:17px;
+      }
+  
+      button {
+      background-color : #111;
+      color : white;
+      border:none;
+      }
+      
+  
+  .sidebar {
+    height: 100%; 
+    width: 0; 
+    position: fixed; 
+    z-index: 1; 
+    top: 0;
+    left: 0;
+    background-color: rgb(87, 47, 1); 
+    overflow-x: hidden; 
+    padding-top: 60px; 
+    transition: 0.5s; 
+  }
+  
+  
+  .sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 17px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+  font-family:Verdana;
+  }
+  
+  
+  .sidebar .main_page:hover {
+    color: rgb(202, 202, 202);
+    background:rgb(216, 115, 0);
+  }
+  
+  
+  .sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    transition:0.3s;
+  }
+  .sidebar .closebtn:hover{
+    color:grey;
+  }
+  .openbtn {
+      float:left;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    background:linear-gradient(180deg, rgb(216, 115, 0) 0%,     black 100%);
+  }
+  
+  .openbtn:hover {
+    background: linear-gradient(90deg, black 0%,    rgb(216, 115, 0)  100%);
+  }
+  
+  
+  #main {
+    transition: margin-left .5s; 
+    padding: 20px;
+  }
+  
+  
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }
+  
+  
+  label{color: white;}
+  input {margin-left: 20px;}
+  b {color: white;}
+  p {color : white;}
+  
+  </style>
+  <!DOCTYPE html>
+  <html>
+      <body>
+      <head>
+          <div id="mySidebar" class="sidebar">
+              <div class="controls" style="float : right">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <button class="b1" onclick="scale = 200; offset.x = offset.y = 0; factor = 1;">Възстанови</button>
+                  <a href="index.html" class="main_page">Назад към началната страница</a>
+                  <p>Приближи: Numpad '+'</p>
+                  <p>Отдалечи: Numpad '-'</p>
+                  
+                  </div>
+            </div>
+            
+            <div id="main">
+              <button class="openbtn" onclick="openNav()">&#9776; Опции</button>
+            </div>
+          </div>
+              <div class="canvas">
+                <canvas id="myCanvas" width="600" height="600" onclick="setOffset(event)"></canvas>
         <script src="../src/classes.js"></script>
         <script src="../src/burningship.js"></script>
-    </head>
-    <body>
-        <title>Горящ кораб</title>
-        <button class="button1" onclick="scale = 200; offset.x = offset.y = 0; factor = 1;"><b>Възстанови</b></button>
-        <br><a href="../index.html"><button class="button2">Назад към нач. стр.</button></a>
-        <p><b>Приближи: Numpad '+'<br>Отдалечи: Numpad '-'</b></p>
-        <style>
-            button {position: absolute;}
-        </style>
-    </body>
-</html>
+                </div>
+                <script>
+                  function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+      }
+      
+      
+      function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+      }
+              </script>
+      </body>
+  </html>
