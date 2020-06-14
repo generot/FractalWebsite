@@ -34,11 +34,11 @@ function setScale(zoom){
 
 window.addEventListener("keydown", function(event){
     //Numpad input
-    switch(event.which){
-    case 107: setScale(true); break; //'+'
-    case 109: setScale(false); break; //'-'
-    case 104: max < 500 ? max += 5 : 0; break; //'8'
-    case 105: max > 5 ? max -= 5 : 0; break; //'9'
+    switch(event.code){
+    case "NumpadAdd": setScale(true); break; //'+'
+    case "NumpadSubtract": setScale(false); break; //'-'
+    case "Numpad8": max < 500 ? max += 5 : 0; break; //'8'
+    case "Numpad9": max > 5 ? max -= 5 : 0; break; //'9'
     default: break;
     }
     
