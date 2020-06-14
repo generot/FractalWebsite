@@ -1,154 +1,180 @@
 <style>
   .canvas {
-    text-align:center;
+    text-align: center;
   }
-  p{
-      font-family:verdana;
-      font-size:17px;
-      transition:0.3s;
-      padding: 14px 28px;
+
+  p {
+    font-family: verdana;
+    font-size: 17px;
+    transition: 0.3s;
+    padding: 14px 28px;
   }
-  p:hover{
-     background: #444;
-color:rgb(202, 202, 202);
+
+  p:hover {
+    background: #444;
+    color: rgb(202, 202, 202);
   }
-    body{
-        text-align:center;
-background: linear-gradient(0deg, rgb(195, 36, 36) 0%,     coral 100%);
+
+  body {
+    text-align: center;
+    background: linear-gradient(0deg, rgb(195, 36, 36) 0%, coral 100%);
+  }
+
+  .b1 {
+    padding: 14px 28px;
+    font-size: 17px;
+    background: rgb(255, 64, 64);
+    display: block;
+    width: 100%;
+    float: left;
+    transition: 0.3s;
+  }
+
+  .b1:hover {
+    color: rgb(202, 202, 202);
+    background: #444;
+    font-size: 17px;
+  }
+
+  button {
+    background-color: #111;
+    color: white;
+    border: none;
+  }
+
+
+  .sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(255, 64, 64);
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+  }
+
+
+  .sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 17px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+    font-family: Verdana;
+  }
+
+
+  .sidebar .main_page:hover {
+    color: rgb(202, 202, 202);
+    background: #444;
+  }
+
+
+  .sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    transition: 0.3s;
+  }
+
+  .sidebar .closebtn:hover {
+    color: grey;
+  }
+
+  .openbtn {
+    float: left;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+  }
+
+  .openbtn:hover {
+    background-color: #444;
+  }
+
+
+  #main {
+    transition: margin-left .5s;
+    padding: 20px;
+  }
+
+
+  @media screen and (max-height: 450px) {
+    .sidebar {
+      padding-top: 15px;
     }
-    .b1{
-      padding: 14px 28px;
-      font-size: 17px;
-      background:rgb(255, 64, 64);
-  display: block;
-  width: 100%;
-  float:left;
-  transition:0.3s;
+
+    .sidebar a {
+      font-size: 18px;
     }
-    .b1:hover {
-  color:rgb(202, 202, 202);
-background:#444;
-font-size:17px;
-    }
-
-    button {
-    background-color : #111;
-    color : white;
-    border:none;
-    }
-    
-
-.sidebar {
-  height: 100%; 
-  width: 0; 
-  position: fixed; 
-  z-index: 1; 
-  top: 0;
-  left: 0;
-  background-color: rgb(255, 64, 64); 
-  overflow-x: hidden; 
-  padding-top: 60px; 
-  transition: 0.5s; 
-}
+  }
 
 
-.sidebar a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 17px;
-  color: white;
-  display: block;
-  transition: 0.3s;
-font-family:Verdana;
-}
+  label {
+    color: white;
+  }
 
+  input {
+    margin-left: 20px;
+  }
 
-.sidebar .main_page:hover {
-  color: rgb(202, 202, 202);
-  background:#444;
-}
+  b {
+    color: white;
+  }
 
-
-.sidebar .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-  transition:0.3s;
-}
-.sidebar .closebtn:hover{
-  color:grey;
-}
-.openbtn {
-    float:left;
-  font-size: 20px;
-  cursor: pointer;
-  background-color: #111;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-}
-
-.openbtn:hover {
-  background-color: #444;
-}
-
-
-#main {
-  transition: margin-left .5s; 
-  padding: 20px;
-}
-
-
-@media screen and (max-height: 450px) {
-  .sidebar {padding-top: 15px;}
-  .sidebar a {font-size: 18px;}
-}
-
-
-label{color: white;}
-input {margin-left: 20px;}
-b {color: white;}
-p {color : white;}
-
+  p {
+    color: white;
+  }
 </style>
 <!DOCTYPE html>
 <html>
-    <body>
-    <head>
-        <div id="mySidebar" class="sidebar">
-            <div class="controls" style="float : right">
-              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-              <button class="b1" onclick="scale = defScale; offset.x = -0.5; offset.y = 0; factor = 1;">Възстанови</button><br>
-                <a href="../index.html" class="main_page">Назад към началната страница</a>
-                <p>Приближи: Numpad '+'</p>
-                <p>Отдалечи: Numpad '-'</p>
-                <p>Увеличи итерациите: Numpad '8'</p>
-                <p>Намали итерациите: Numpad '9'</p>
-                </div>
-          </div>
-          
-          <div id="main">
-            <button class="openbtn" onclick="openNav()">&#9776; Опции</button>
-          </div>
-        </div>
-            <div class="canvas">
-              <canvas id="myCanvas" width="600" height="600" onclick="setOffset(event)"></canvas><br>
-              <script src="../src/classes.js"></script>
-              <script src="../src/mandelbrot.js"></script>
-              </div>
-              <script>
-                function openNav() {
-      document.getElementById("mySidebar").style.width = "250px";
-      document.getElementById("main").style.marginLeft = "250px";
-    }
-    
-    
-    function closeNav() {
-      document.getElementById("mySidebar").style.width = "0";
-      document.getElementById("main").style.marginLeft = "0";
-    }
-            </script>
-    </body>
+
+<body>
+
+  <head>
+    <div id="mySidebar" class="sidebar">
+      <div class="controls" style="float : right">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <button class="b1"
+          onclick="scale = defScale; offset.x = -0.5; offset.y = 0; factor = 1; draw();">Възстанови</button><br>
+        <a href="../index.html" class="main_page">Назад към началната страница</a>
+        <p>Приближи: Numpad '+'</p>
+        <p>Отдалечи: Numpad '-'</p>
+        <p>Увеличи итерациите: Numpad '8'</p>
+        <p>Намали итерациите: Numpad '9'</p>
+      </div>
+    </div>
+
+    <div id="main">
+      <button class="openbtn" onclick="openNav()">&#9776; Опции</button>
+    </div>
+    </div>
+    <div class="canvas">
+      <canvas id="myCanvas" width="600" height="600" onclick="setOffset(event)"></canvas><br>
+      <script src="../src/classes.js"></script>
+      <script src="../src/mandelbrot.js"></script>
+    </div>
+    <script>
+      function openNav() {
+        clearInterval(interv);
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+      }
+      function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+        interv = setInterval(draw, 10 / 6);
+      }
+    </script>
+</body>
+
 </html>

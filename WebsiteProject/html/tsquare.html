@@ -1,148 +1,162 @@
 <!DOCTYPE html>
 <style>
   .canvas {
-    text-align:center;
+    text-align: center;
   }
-    body{
-background: linear-gradient(0deg, rgb(0, 0, 0) 0%,     rgb(10, 10, 10) 100%);
+
+  body {
+    background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgb(10, 10, 10) 100%);
+  }
+
+  .b2 {
+    padding: 14px 28px;
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    float: left;
+    background-color: rgb(70, 70, 70);
+  }
+
+  .b1 {
+    padding: 14px 28px;
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    float: left;
+    background-color: rgb(70, 70, 70);
+  }
+
+  .b1:hover {
+    color: rgb(202, 202, 202);
+    background-color: rgb(150, 150, 150);
+    font-size: 17px;
+  }
+
+  .b2:hover {
+    color: rgb(202, 202, 202);
+    background-color: rgb(150, 150, 150);
+    font-size: 17px;
+  }
+
+  button {
+    background-color: #111;
+    color: white;
+    border: none;
+  }
+
+
+  .sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(70, 70, 70);
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+  }
+
+
+  .sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 17px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+    font-family: Verdana;
+  }
+
+
+  .sidebar a:hover {
+    color: rgb(202, 202, 202);
+    background: #444;
+  }
+
+
+  .sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+  .openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+  }
+
+  .openbtn:hover {
+    background-color: rgb(120, 120, 120);
+  }
+
+
+  #main {
+    transition: margin-left .5s;
+    padding: 20px;
+  }
+
+
+  @media screen and (max-height: 450px) {
+    .sidebar {
+      padding-top: 15px;
     }
-    .b2{
-      padding: 14px 28px;
-  font-size: 16px;
-  display: block;
-  width: 100%;
-  float:left;
-    background-color:rgb(70,70,70);
+
+    .sidebar a {
+      font-size: 18px;
     }
-    .b1{
-      padding: 14px 28px;
-      font-size: 16px;
-  display: block;
-  width: 100%;
-  float:left;
-  background-color:rgb(70,70,70);
-    }
-    .b1:hover {
-  color:rgb(202, 202, 202);
-background-color:rgb(150,150,150);
-font-size:17px;
-    }
-    .b2:hover {
-  color:rgb(202, 202, 202);
-background-color:rgb(150,150,150);
-  font-size:17px;
-    }
-    button {
-    background-color : #111;
-    color : white;
-    border:none;
-    }
-    
-
-.sidebar {
-  height: 100%; 
-  width: 0; 
-  position: fixed; 
-  z-index: 1; 
-  top: 0;
-  left: 0;
-  background-color: rgb(70,70,70); 
-  overflow-x: hidden; 
-  padding-top: 60px; 
-  transition: 0.5s; 
-}
-
-
-.sidebar a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 17px;
-  color: white;
-  display: block;
-  transition: 0.3s;
-font-family:Verdana;
-}
-
-
-.sidebar a:hover {
-  color: rgb(202, 202, 202);
-  background:#444;
-}
-
-
-.sidebar .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-
-.openbtn {
-  font-size: 20px;
-  cursor: pointer;
-  background-color: #111;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-}
-
-.openbtn:hover {
-  background-color: rgb(120,120,120);
-}
-
-
-#main {
-  transition: margin-left .5s; 
-  padding: 20px;
-}
-
-
-@media screen and (max-height: 450px) {
-  .sidebar {padding-top: 15px;}
-  .sidebar a {font-size: 18px;}
-}
+  }
 </style>
 
-     
+
 <html>
- <head>
-    <body>
-        <script>
-            function openNav() {
-  document.getElementById("mySidebar").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
-}
+
+<head>
+
+<body>
+  <script>
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+    }
 
 
-function closeNav() {
-  document.getElementById("mySidebar").style.width = "0";
-  document.getElementById("main").style.marginLeft = "0";
-}
-        </script>
-         </head>
-   
-        <div id="mySidebar" class="sidebar">
-            <div class="controls" style="float : right">
-              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <p><button class="b1" onclick="setup(newSq, 0, cnt); cnt++;">Изпълни</p>
-             <p><button class="b2" onclick="manager.clear(); newSq.a.Fill(); cnt = 0;">Възстанови</button><br></p>
-                <a href="../index.html">Назад към начална страница</a>
-                </div>
-          </div>
-          
-          <div id="main">
-            <button class="openbtn" onclick="openNav()">&#9776; Опции</button>
-          </div>
-          <div class="canvas">
-            <canvas id="canvas" width="600" height="600"></canvas> 
-            <script src="../src/classes.js"></script>
-            <script src="../src/tsqr.js"></script>
-            </div>
-   
-        <title>T-square</title>
-    
-    </body>
-   
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("main").style.marginLeft = "0";
+    }
+  </script>
+  </head>
+
+  <div id="mySidebar" class="sidebar">
+    <div class="controls" style="float : right">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <p><button class="b1" onclick="setup(newSq, 0, cnt); cnt++;">Изпълни</p>
+      <p><button class="b2" onclick="manager.clear(); newSq.a.Fill(); cnt = 0;">Възстанови</button><br></p>
+      <a href="../index.html">Назад към начална страница</a>
+    </div>
+  </div>
+
+  <div id="main">
+    <button class="openbtn" onclick="openNav()">&#9776; Опции</button>
+  </div>
+  <div class="canvas">
+    <canvas id="canvas" width="600" height="600"></canvas>
+    <script src="../src/classes.js"></script>
+    <script src="../src/tsqr.js"></script>
+  </div>
+
+  <title>T-square</title>
+
+</body>
+
 </div>
+
 </html>

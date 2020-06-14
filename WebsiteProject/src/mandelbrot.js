@@ -6,7 +6,6 @@ var scale = 180, defScale = scale, factor = 1, speed = 0.018888, slider = docume
 let manager = new CanvasManagement(canvas), imData = cont.getImageData(0, 0, canvas.width, canvas.height),
 pixels = imData.data;
 
-
 var offset = {
     x: -0.5,
     y: 0
@@ -35,13 +34,12 @@ function setScale(zoom){
 window.addEventListener("keydown", function(event){
     //Numpad input
     switch(event.code){
-    case "NumpadAdd": setScale(true); break; //'+'
+    case "NumpadAdd": setScale(true); break; //'+'s
     case "NumpadSubtract": setScale(false); break; //'-'
     case "Numpad8": max < 500 ? max += 5 : 0; break; //'8'
-    case "Numpad9": max > 5 ? max -= 5 : 0; break; //'9'
+    case "Numpad9": max > 5 ? max -= 5 : 0;  break; //'9'
     default: break;
     }
-    
 });
 
 function draw(){
@@ -83,5 +81,5 @@ function draw(){
     cont.putImageData(imData, 0, 0);
 }
 
-setInterval(draw, 10/6);
+var interv = setInterval(draw, 10/6);
 
