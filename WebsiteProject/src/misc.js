@@ -24,7 +24,7 @@ function start(iter){
 
     for(let i = 0; i < modstr.length; i++){
         if(modstr[i] == 'F'){
-            Graphics.DrawLine(ctx, 0, -lineLen, "white");
+            Graphics.DrawLine(ctx, 0, -lineLen, "black");
             ctx.translate(0, -lineLen);
         } 
         else if(modstr[i] == '+')
