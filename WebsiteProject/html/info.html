@@ -183,6 +183,16 @@ transition:0.3s;
 </head>
 
 <body>
+  <div id="main_bar" class="sidebar">
+    <a href="javascript:void(0)" class="close" onclick="NavClose()">&times;</a>
+    <a href="aboutUs.html">За нас</a>
+    <a href="../index.html">Към началната страница</a>
+  </div>
+
+  <div id="main">
+    <button class="openbtn" onclick="NavOpen()">&#9776;</button>
+  </div>
+
   <div class="txtstyle">
     <h2>1.Escape-time фрактали:</h2>
     <p><b>Escape-time фракталите се изобразяват, чрез следене на броя итерации за дадени координати<br>
@@ -268,13 +278,6 @@ transition:0.3s;
 
   </div>
 
-  <div id="main_bar" class="sidebar">
-    <a href="javascript:void(0)" class="close" onclick="NavClose()">&times;</a>
-    <a href="aboutUs.html">За нас</a>
-    <a href="../index.html">Към началната страница</a>
-  </div>
-  <div id="main">
-    <button class="openbtn" onclick="NavOpen()">&#9776;</button>
     <script>
       function myFunction() {
         var dots = document.getElementById("dots");
@@ -375,7 +378,6 @@ transition:0.3s;
         document.getElementById("main").style.marginLeft = "0";
       }
     </script>
-  </div>
 </body>
 
 </html>
