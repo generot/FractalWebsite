@@ -1,7 +1,7 @@
 let canvas = document.getElementById("myCanvas");
 let cont = canvas.getContext("2d");
 
-var scale = 180, defScale = scale, factor = 1, speed = 0.018888, slider = document.getElementById("sldr");
+var scale = 180, defScale = scale, factor = 1;
 
 let manager = new CanvasManagement(canvas), imData = cont.getImageData(0, 0, canvas.width, canvas.height),
 pixels = imData.data;
@@ -34,12 +34,13 @@ function setScale(zoom){
 window.addEventListener("keydown", function(event){
     //Numpad input
     switch(event.code){
-    case "NumpadAdd": setScale(true); break; //'+'s
+    case "NumpadAdd": setScale(true); break; //'+'
     case "NumpadSubtract": setScale(false); break; //'-'
     case "Numpad8": max < 500 ? max += 5 : 0; break; //'8'
     case "Numpad9": max > 5 ? max -= 5 : 0;  break; //'9'
     default: break;
     }
+    
 });
 
 function draw(){
@@ -82,4 +83,5 @@ function draw(){
 }
 
 var interv = setInterval(draw, 10/6);
+
 
